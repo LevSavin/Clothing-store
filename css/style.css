@@ -1,11 +1,12 @@
-* {
-    transition: all 0.3s;
-}
-
 :root {
-    --black-color: #222222;
+    --black-color: #222;
     --pink-color: #F16D7F;
     --pink-background: #F1E4E6;
+    --white-color: #FFF;
+    --light-gray-color:#E1E1E1;
+    --gray-color: #9F9F9F;
+    --dark-gray-color:#6F6E6E;
+    --anim-transition-duration: 0.2s;
 }
 
 .visually-hidden {
@@ -25,7 +26,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 36px;
-    background-color: #FFFFFF;
+    background-color: var(--white-color);
 }
 
 .container {
@@ -44,11 +45,13 @@ body {
 .button:focus,
 a:hover {
     opacity: .7;
+    transition-duration: var(--anim-transition-duration)
 }
 
 .button:active,
 a:active {
     opacity: .4;
+    transition-duration: var(--anim-transition-duration)
 }
 
 a {
@@ -143,7 +146,7 @@ a:visited {
     font-size: 14px;
     line-height: 17px;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--black-color);
     padding: 0 0 4px 34px;
 }
 
@@ -158,12 +161,20 @@ a:visited {
 .navbar-item {
     font-size: 14px;
     line-height: 17px;
-    color: #6F6E6E;
+    color: var(--dark-gray-color);
     margin-left: 54px;
 }
 
 .navbar-item:not(:last-of-type) {
     margin-bottom: 11px;
+}
+
+.navbar_link-tittle {
+    color: var(--pink-color);
+}
+
+.navbar_link {
+    color: var(--dark-gray-color);
 }
 
 .stock__list {
@@ -202,13 +213,11 @@ a:visited {
     background-image: url(../img/stock-3.jpg);
 }
 
-
-
 .stock__item-name {
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0em;
-    color: #FFFFFF;
+    color: var(--white-color);
     text-transform: uppercase;
 }
 
@@ -229,16 +238,16 @@ a:visited {
     flex-direction: column;
 }
 
-.featured_tag {
+.featured__tittle {
     text-align: center;
     margin-bottom: 6px;
     font-weight: 400;
 }
 
-.tag_second-raw {
+.featured__subtittle {
     font-size: 14px;
     line-height: 17px;
-    color: #9F9F9F;
+    color: var(--gray-color);
     margin-bottom: 48px;
 }
 
@@ -284,10 +293,11 @@ a:visited {
 .featured__image-box:hover {
     opacity: 1;
     background-color: rgba(33, 33, 33, 0.7);
+    transition-duration: var(--anim-transition-duration)
 }
 
 .featured__button {
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--white-color);
     width: 138px;
     height: 43px;
     display: flex;
@@ -302,36 +312,38 @@ a:visited {
 .featured__button:hover:focus,
 a:hover {
     opacity: .7;
+    transition-duration: var(--anim-transition-duration)
 }
 
 .featured__button:hover:active {
     opacity: .4;
+    transition-duration: var(--anim-transition-duration)
 }
 
 .featured__button-text {
     font-size: 14px;
     line-height: 17px;
-    color: #FFFFFF;
+    color: var(--white-color);
     margin: 0 0 0 11px;
 }
 
-.featured__item_row1 {
+.featured__item_text {
     font-size: 13px;
     line-height: 16px;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--black-color);
     margin-left: 18px;
 }
 
-.featured__item_row2 {
+.featured__item_subtext {
     font-weight: 300;
     font-size: 14px;
     line-height: 17px;
-    color: #5D5D5D;
+    color: var(--gray-color);
     margin-left: 18px;
 }
 
-.featured__item_row3 {
+.featured__item_price {
     font-size: 16px;
     line-height: 19px;
     color: var(--pink-color);
@@ -355,7 +367,7 @@ a:hover {
 /*ADVANTAGES*/
 
 .advantages {
-    background-color: #222224;
+    background-color: var(--black-color);
 }
 
 .advantages__content {
@@ -386,17 +398,17 @@ a:hover {
     content: url('../img/advantages-3.svg');
 }
 
-.advantages_row1 {
+.advantages_text {
     font-size: 19.96px;
     line-height: 24px;
-    color: #FBFBFB;
+    color: var(--white-color);
 }
 
-.advantages_row2 {
+.advantages_subtext {
     font-weight: 300;
     font-size: 13.972px;
     line-height: 17px;
-    color: #FBFBFB;
+    color: var(--white-color);
     text-align: center;
 }
 
@@ -425,7 +437,7 @@ a:hover {
 .footer__text {
     font-size: 20px;
     line-height: 24px;
-    color: #222224;
+    color: var(--black-color);
     margin-top: 20px;
 }
 
@@ -437,14 +449,14 @@ a:hover {
     font-weight: 700;
     font-size: 24px;
     line-height: 40px;
-    color: #222224;
+    color: var(--black-color);
     text-transform: uppercase;
 }
 
 .footer__subtittle {
     font-size: 20px;
     line-height: 24px;
-    color: #222224;
+    color: var(--black-color);
     text-transform: uppercase;
     margin-bottom: 32px;
 }
@@ -452,6 +464,38 @@ a:hover {
 .footer__subscribe {
     text-align: center;
     margin: 0 97px 0 0;
+}
+
+.footer__label {
+    background-color: var(--light-gray-color);
+    border-radius: 25px 25px 25px 25px;
+    height: 49px;
+    display: block;
+}
+
+.footer__field-text {
+    padding: 0 0 0 22px;
+    border: none;
+    outline: none;
+    width: 262px;
+    height: 49px;
+    background-color: var(--light-gray-color);
+    border-radius: 25px 0 0 25px;
+    }
+
+.footer__button-submit {
+    padding: 0;
+    background-color: var(--pink-color);
+    color: var(--white-color);
+    border: none;
+    outline: none;
+    border-radius: 0 25px 25px 0;
+    width: 100px;
+    height: 49px;
+}
+
+.footer__form {
+    transition-duration: var(--anim-transition-duration) 
 }
 
 .footer__holder {
@@ -468,7 +512,7 @@ a:hover {
 .footer__wrapper_text {
     font-size: 16px;
     line-height: 19px;
-    color: #FBFBFB;
+    color: var(--white-color);
 }
 
 .footer__social-list {
