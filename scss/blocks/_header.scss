@@ -1,0 +1,129 @@
+.header {
+    background-color: $black-color;
+
+    .header__container {
+        display: flex;
+        @include align-items(center);
+        @include justify-content-space-between;
+        min-height: 75px;
+    }
+
+    .header__logo {
+        margin: 0 41px 0 0;
+    }
+
+    .header__logo:hover {
+        opacity: 1;
+    }
+
+    .header__menu-list,
+    .header__logo-box {
+        display: flex;
+        @include align-items(center);
+    }
+
+    .header__menu-item:not(:last-of-type) {
+        margin: 0 25px 0 0;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .header__menu-item:nth-of-type(2) {
+        margin: 0 42px 0 0;
+    }
+
+    .header__navbar {
+        position: relative;
+        outline: 1px transparent;
+
+        &:focus .navbar {
+            display: flex;
+        }
+
+        @include mobile {
+            margin: 0 10px 0 0;
+        }
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 55px;
+        left: 30px;
+        min-width: 232px;
+        min-height: 765px;
+        @include direction-column;
+        background-color: $white-color;
+
+        &:hover {
+            display: flex;
+        }
+    }
+
+    .navbar__close {
+        align-self: flex-end;
+        line-height: 1px;
+        margin: 16px 17px 0 0;
+    }
+
+    .navbar__tittle {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $black-color;
+        padding: 0 0 4px 34px;
+    }
+
+    .navbar-item-tittle {
+        text-transform: uppercase;
+        color: $pink-color;
+        margin: 20px 0 12px 34px;
+    }
+
+    .navbar-item {
+        color: $dark-gray-color;
+        margin-left: 54px;
+    }
+
+    .navbar-item:not(:last-of-type) {
+        margin-bottom: 11px;
+    }
+
+    .navbar_link-tittle {
+        color: $pink-color;
+    }
+
+    .navbar_link {
+        color: $dark-gray-color;
+    }
+}
+
+@media (max-width: $desktop-width) {
+    .header {
+        .container {
+            width: 96%;
+        }
+
+        .header__container {
+            width: 91.5%;
+        }
+
+        .navbar {
+            top: 50px;
+            left: -142px;
+            min-width: 200px;
+            min-height: 610px;
+            background-color: $white-color-opacity;
+        }
+    }
+}
+
+@media (max-width: $tables-width) {
+    .header {
+        .container {
+            width: 91.5%;
+        }
+    }
+}

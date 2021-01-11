@@ -1,0 +1,82 @@
+.stock {
+    .stock__list {
+        margin-top: 63px;
+        display: flex;
+        @include justify-content-space-between;
+        flex-wrap: wrap;
+
+        @include tablet {
+            margin-top: 155px;
+        }
+
+        @include mobile {
+            margin-top: 84px;
+            justify-content: center;
+        }
+    }
+
+    .stock__item {
+        width: 360px;
+        min-height: 260px;
+        display: flex;
+        @include align-items(center);
+        @include justify-content-center;
+        @include direction-column;
+
+        @include tablet {
+            width: 31.5%;
+        }
+
+        @include mobile {
+            width: 343px;
+        }
+    }
+
+    .stock__item:not(:last-of-type) {
+        margin: 0 0 30px 0;
+
+        @include tablet {
+            margin: 0 0 20px 0
+        }
+
+        @include mobile {
+            margin: 0 0 32px 0
+        }
+    }
+
+    .stock__item--last {
+        width: 100%;
+        min-height: 180px;
+        background-image: url(../img/stock-1.jpg);
+
+        @include mobile {
+            width: 343px;
+        }
+    }
+
+    .stock_women {
+        background-image: url(../img/stock-women.jpg);
+    }
+
+    .stock_men {
+        background-image: url(../img/stock-2.jpg);
+    }
+
+    .stock_kids {
+        background-image: url(../img/stock-3.jpg);
+    }
+
+    .stock__item-name {
+        @include font(16px, 19px, 400);
+        letter-spacing: 0.1em;
+        color: $white-color;
+        text-transform: uppercase;
+    }
+
+    .stok_item-category {
+        @include font (24px, 29px, 700);
+        letter-spacing: 0.1em;
+        color: $pink-color;
+        text-transform: uppercase;
+    }
+}

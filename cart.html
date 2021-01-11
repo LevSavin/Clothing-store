@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo-box">
+                <a href="index.html" class="header__logo"><img src="./img/logo.svg" alt="logo" width="44"
+                        height="38"></a>
+                <div class="header__search">
+                    <button class="button header__button"><img src="./img/loupe.svg" alt="лупа" width="26"
+                            height="27"></button>
+                </div>
+            </div>
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <button class="button header__button">
+                        <img src="img/icon-user.svg" alt="icon-user">
+                    </button>
+                </li>
+                <li class="header__menu-item">
+                    <button class="button header__button">
+                        <img src="img/icon-cart.svg" alt="icon-cart">
+                    </button>
+                </li>
+                <li class="header__menu-item header__navbar" tabindex="1">
+                    <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon-hamburger">
+                    <div class="navbar">
+                        <button class="navbar__close button">
+                            <img src="img/navbar-close.svg" alt="navbar__close">
+                        </button>
+                        <h2 class="navbar__tittle">Menu</h2>
+                        <ul class="navbar__all-categories">
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">man</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Denim</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">woman</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets & Coats</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">kids</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets &amp; Coats</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <section class="cart">
+            <div class="cart__name">
+                <div class="cart__name_box container">
+                    <h1 class="cart__tittle">shopping cart</h1>
+                </div>
+            </div>
+            <div class="cart__content container">
+                <div class="cart__goods">
+                    <ul class="cart__goods_list">
+                        <li class="cart__goods_item">
+                            <img src="./img/featured-image-3.jpg" alt="featured-image-3" class="cart__goods_item-image">
+                            <div class="cart__goods_item-wrap">
+                                <div class="cart__goods_item-text">
+                                    <h2 class="cart__goods_item-tittle">mango people<br>t-shirt</h2>
+                                    <ul class="cart__goods_char-list">
+                                        <li class="cart__goods_char-item">Price: <span
+                                                class="cart__goods_char-price">$300</span></li>
+                                        <li class="cart__goods_char-item">Color: Red</li>
+                                        <li class="cart__goods_char-item">Size: Xl</li>
+                                        <li class="cart__goods_char-item">Quantity: <span
+                                                class="cart__goods_char-quantity">2</span></li>
+                                    </ul>
+                                </div>
+                                <button class="cart__goods_close button">
+                                    <img src="img/navbar-close.svg" class="cart__goods_close-img"
+                                        alt="cart__goods_close">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="cart__goods_item">
+                            <img src="./img/cart-goods-2.jpg" alt="cart-goods-2" class="cart__goods_item-image">
+                            <div class="cart__goods_item-wrap">
+                                <div class="cart__goods_item-text">
+                                    <h2 class="cart__goods_item-tittle">mango people<br>t-shirt</h2>
+                                    <ul class="cart__goods_char-list">
+                                        <li class="cart__goods_char-item">Price: <span
+                                                class="cart__goods_char-price">$300</span></li>
+                                        <li class="cart__goods_char-item">Color: Red</li>
+                                        <li class="cart__goods_char-item">Size: Xl</li>
+                                        <li class="cart__goods_char-item">Quantity: <span
+                                                class="cart__goods_char-quantity">2</span></li>
+                                    </ul>
+                                </div>
+                                <button class="cart__goods_close button">
+                                    <img src="img/navbar-close.svg" class="cart__goods_close-img"
+                                        alt="cart__goods_close">
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart__goods_buttons">
+                        <button class="cart__goods_button button">clear shopping cart</button>
+                        <button class="cart__goods_button button">continue shopping</button>
+                    </div>
+                </div>
+                <div class="cart__goods_wrap">
+                    <form action="#" class="cart__form">
+                        <legend class="cart__form_tittle">shipping adress</legend>
+                        <input class="cart__form_field input-text" type="text" placeholder="Country" required>
+                        <input class="cart__form_field input-text" type="text" placeholder="State" required>
+                        <input class="cart__form_field input-text" type="text" placeholder="Postcode / Zip" required>
+                        <button type="submit" class="cart__form_submit button">get a quote</button>
+                    </form>
+                    <div class="cart__order">
+                        <div class="cart__order_text-wrap">
+                            <h3 class="cart__order_subtittle">sub total<span class="cart__order_subtittle-price">$900</span></h3>
+                            <h2 class="cart__order_tittle">grand total<span class="cart__order_tittle-price">$900</span></h2>
+                        </div>
+                        <div class="cart__order_text-box">
+                            <button type="submit" class="cart__order_submit button">proceed to checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__box">
+            <div class="footer__wrap container">
+                <div class="footer__content">
+                    <div class="footer__image"></div>
+                    <p class="footer__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus
+                        condimentum“</p>
+                </div>
+                <div class="footer__subscribe">
+                    <h2 class="footer__tittle">Subscribe</h2>
+                    <p class="footer__subtittle">for our newletter and promotion</p>
+                    <form action="#" class="footer__form" tabindex="1">
+                        <input class="footer__field-text" type="email" placeholder="Enter Your Email">
+                        <input class="button footer__button-submit" type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer__holder">
+            <div class="footer__wrapper container">
+                <p class="footer__wrapper_text">&copy; 2021 Brand All Rights Reserved.</p>
+                <ul class="footer__social-list">
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-facebook.svg" alt="icon-facebook"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-instagram.svg" alt="icon-instagram"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-twitter.svg" alt="icon-twitter"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-pinterast.svg" alt="icon-pinterast"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
