@@ -1,0 +1,140 @@
+.registration {
+    .registration__name {
+        background-color: $bcr-name;
+    }
+
+    .registration__name_box {
+        min-height: 148px;
+        display: flex;
+        align-items: center;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    .registration__tittle {
+        @include font(24px, 29px);
+        color: $pink-color;
+        text-transform: uppercase;
+    }
+
+    .registration__content {
+        min-height: 651px;
+        padding: 64px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet-max {
+            padding: 40px 0 0 0;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .registration__form {
+        width: 31.6%;
+
+        @include tablet {
+            width: 46.9%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    .registration__perks {
+        width: 57.2%;
+
+        @include tablet {
+            width: 46%;
+        }
+
+        @include mobile {
+            width: 100%;
+            margin: 0 0 90px 0;
+        }
+
+    }
+
+    .registration__form_tittle {
+        @include font(16px, 19px, 300);
+    }
+
+    .registration__form_field {
+        margin: 20px 0 0 0;
+        box-sizing: border-box;
+    }
+
+    .registration__form_field-check {
+        margin: 31px 10px 33px 0;
+    }
+
+    .registration__form_check-text {
+        @include font(11px, 13px, 300);
+        padding: 0 20px 0 0;
+    }
+
+    .registration__form_login-text {
+        @include font(13px, 16px, 300);
+        color: $dark-gray-color;
+        display: block;
+        margin: 15px 20px 39px 0;
+    }
+
+    .registration__form_submit {
+        min-width: 167px;
+        min-height: 50px;
+        background-color: $pink-color;
+        color: $white-color;
+        text-transform: uppercase;
+    }
+
+    .registration__form_submit-text {
+        padding: 0 20px 0 0;
+    }
+
+    .registration__form_submit-icon::before {
+        content: url('../img/vector.svg');
+    }
+
+    .registration__perks_tittle,
+    .registration__perks_subtittle,
+    .registration__perks_item {
+        @include font(24px, 28px, 300);
+
+        @include tablet-max {
+            @include font(16px, 19px, 300);
+        }
+    }
+
+    .registration__perks_tittle {
+        text-transform: uppercase;
+
+        @include mobile {
+            padding: 40px 0 0 0;
+        }
+    }
+
+    .registration__perks_subtittle {
+        margin: 22px 0 21px 0;
+    }
+
+    .registration__perks_item {
+        display: flex;
+        padding: 0 0 16px 0;
+    }
+
+    .registration__perks_item-text {
+        display: block;
+    }
+
+    .registration__perks_item::before {
+        content: url(../img/check-mark.svg);
+        margin: 0 23px 0 0;
+    }
+}

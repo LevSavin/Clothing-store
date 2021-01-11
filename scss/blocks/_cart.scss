@@ -1,0 +1,213 @@
+.cart {
+    .cart__name {
+        background-color: $bcr-name;
+    }
+
+    .cart__name_box {
+        min-height: 148px;
+        display: flex;
+        align-items: center;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    .cart__tittle {
+        @include font(24px, 29px);
+        color: $pink-color;
+        text-transform: uppercase;
+    }
+
+    .cart__content {
+        min-height: 651px;
+        padding: 96px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            padding: 59px 0 0 0;
+            flex-direction: column;
+        }
+
+        @include mobile {
+            padding: 39px 0 0 0;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .cart__goods {
+        width: 57.2%;
+
+        @include tablet-max {
+            width: 100%;
+        }
+    }
+
+    .cart__goods_item {
+        display: flex;
+        box-shadow: 15px 15px 29px 2px $light-gray-color;
+        margin: 0 0 40px 0;
+    }
+
+    .cart__goods_close {
+        justify-self: flex-end;
+        align-self: flex-start;
+        line-height: 1px;
+        margin: 6px 22px 0 0;
+    }
+
+    .cart__goods_close-img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cart__goods_item-image {
+        width: 262px;
+        height: 306px;
+    }
+
+    .cart__goods_item-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 22px 0 0 31px;
+    }
+
+    .cart__goods_item-tittle {
+        @include font (24px, 28px);
+        text-transform: uppercase;
+        margin: 0 0 42px 0;
+    }
+
+    .cart__goods_char-item {
+        @include font (22px, 26px);
+        color: $text-dark-grey-color;
+        padding: 0 0 6px 0;
+    }
+
+    .cart__goods_char-price {
+        color: $pink-color;
+    }
+
+    .cart__goods_char-quantity {
+        margin: 0 0 0 40px;
+    }
+
+    .cart__goods_buttons {
+        padding: 32px 0 128px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart__goods_button {
+        border: 1px solid $gray-color;
+        padding: 16px 40px;
+        @include font(17px, 17px, 300);
+        text-transform: uppercase;
+    }
+
+    .cart__goods_wrap {
+        margin: 0 0 0 11.3%;
+        display: flex;
+        flex-direction: column;
+        width: 31.6%;
+
+        @include tablet-max {
+            margin: 0 0 0 0;
+        }
+
+        @include tablet {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @include mobile {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+
+    .cart__form_tittle {
+        @include font(16px, 19px, 300);
+        text-transform: uppercase;
+    }
+
+    .cart__form_field {
+        margin: 20px 0 0 0;
+        box-sizing: border-box;
+        max-width: 100%;
+        min-height: 45px;
+    }
+
+    .cart__form_submit {
+        border: 1px solid $gray-color;
+        text-transform: uppercase;
+        @include font(11px, 13px, 300);
+        width: 28.1%;
+        min-height: 45px;
+        padding: 11px 14px;
+        margin: 23px 0 0 0;
+    }
+
+    .cart__order {
+        margin: 57px 0 0 0;
+        padding: 39px 0 42px 0;
+        color: $text-dark-grey-color;
+        display: flex;
+        flex-direction: column;
+        background-color: $footer-bcg;
+
+        @include tablet {
+            margin: 0 0 147px 0;
+            width: 46.9%;
+        }
+
+        @include mobile {
+            margin: 48px 0 96px 0;
+            width: 100%;
+        }
+    }
+
+    .cart__order_text-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart__order_subtittle {
+        @include font (11px, 13px);
+        text-transform: uppercase;
+        text-align: end;
+    }
+
+    .cart__order_subtittle-price {
+        padding: 0 10.3% 0 20px;
+    }
+
+    .cart__order_tittle {
+        @include font (16px, 19px);
+        text-transform: uppercase;
+        text-align: end;
+        margin: 12px 0 39px 0;
+    }
+
+    .cart__order_tittle-price {
+        padding: 0 10.3% 0 20px;
+    }
+
+    .cart__order_submit {
+        background-color: $pink-color;
+        color: $white-color;
+        text-transform: uppercase;
+        @include font(16px, 19px, 300);
+        width: 75.9%;
+        min-height: 50px;
+    }
+
+    .cart__order_text-box {
+        display: flex;
+        justify-content: center;
+    }
+}
