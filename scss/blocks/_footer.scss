@@ -1,0 +1,158 @@
+.footer {
+    .footer__box {
+        max-width: 1600px;
+        margin: 0 auto;
+        min-height: 448px;
+        background-color: $footer-bcg;
+        background-image: url(../img/photo-subscribe.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+        .footer__wrap {
+            display: flex;
+            @include justify-content-space-between;
+            @include align-items(center);
+            min-height: 448px;
+
+            @include tablet {
+                @include direction-column;
+                min-height: 500px;
+                padding: 53px 0 140px 0;
+            }
+
+            @include mobile {
+                @include direction-column;
+                min-height: 386px;
+                padding: 54px 0 110px 0;
+            }
+        }
+
+        .footer__content {
+            max-width: 360px;
+            text-align: center;
+        }
+
+        .footer__text {
+            @include font(20px, 24px);
+            color: $black-color;
+            margin-top: 20px;
+        }
+
+        .footer__image::before {
+            content: url('../img/intersect.png');
+        }
+
+        .footer__tittle {
+            @include font(24px, 28px, 700);
+            color: $black-color;
+            text-transform: uppercase;
+
+            @include tablet {
+                @include font(18px, 29px, 400);
+            }
+
+            @include mobile {
+                @include font(24px, 36px, 700);
+            }
+        }
+
+        .footer__subtittle {
+            @include font(18px, 21px);
+            color: $black-color;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+
+            @include tablet {
+                @include font(18px, 29px);
+            }
+
+            @include mobile {
+                @include font(14px, 21px);
+            }
+        }
+
+        .footer__subscribe {
+            min-width: 320px;
+            text-align: center;
+            margin: 0 97px 0 0;
+
+            @include tablet {
+                margin: 0;
+            }
+
+            @include mobile {
+                margin: 0;
+            }
+        }
+
+        .footer__form {
+            background-color: $light-gray-color;
+            border: 1px solid transparent;
+            border-radius: 25px 25px 25px 25px;
+            min-height: 49px;
+            display: flex;
+            @include justify-content-space-between;
+            outline: transparent;
+            @include transition-duration($transition-duration);
+                   }
+
+        .footer__form:focus-within, .footer__form:hover { 
+            border-color: $pink-color-opacity;
+            outline: transparent;
+        }
+        
+        .footer__field-text {
+            padding: 0 0 0 22px;
+            width: 100%;
+            border: none;
+            outline: transparent;
+            background-color: transparent;
+        }
+
+        .footer__button-submit {
+            background-color: $pink-color;
+            color: $white-color;
+            border: none;
+            outline: transparent;
+            border-radius: 0 25px 25px 0;
+            min-width: 100px;
+            min-height: 49px;
+        }
+
+        .footer__form {
+            @include transition-duration($transition-duration)
+        }
+    }
+
+    .footer__holder {
+        background-color: $black-color;
+
+        .footer__wrapper {
+            display: flex;
+            @include justify-content-space-between;
+            align-items: center;
+            min-height: 79px;
+
+            @include mobile {
+                display: flex;
+                flex-direction: column-reverse;
+                padding: 43px 0 9px 0;
+                min-height: 91px;
+            }
+        }
+
+        .footer__wrapper_text {
+            font-size: 16px;
+            line-height: 19px;
+            color: $white-color;
+        }
+
+        .footer__social-list {
+            display: flex;
+        }
+
+        .footer__social-item:not(:last-of-type) {
+            margin: 0 7px 0 0;
+        }
+    }
+}
