@@ -22,6 +22,12 @@
     }
 }
 
+@mixin mobile-under {
+    @media (max-width: 374px) {
+        @content;
+    }
+}
+
 @mixin transition-duration($transition-duration) {
     transition-duration: ($transition-duration);
     -webkit-transition-duration: ($transition-duration);
