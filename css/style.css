@@ -836,7 +836,7 @@ a:hover {
     -ms-box-direction: normal;
     -ms-flex-direction: column;
     -ms-box-orient: vertical;
-    min-height: 500px;
+    min-height: 421px;
     padding: 53px 0 140px 0;
   }
 }
@@ -864,7 +864,7 @@ a:hover {
   line-height: 24px;
   font-weight: 400;
   color: #222;
-  margin-top: 20px;
+  margin: 20px 0 59px 0;
 }
 
 .footer .footer__box .footer__image::before {
@@ -879,15 +879,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-@media (min-width: 768px) and (max-width: 1599px) {
-  .footer .footer__box .footer__tittle {
-    font-size: 18px;
-    line-height: 29px;
-    font-weight: 400;
-  }
-}
-
-@media (max-width: 767px) {
+@media (max-width: 1599px) {
   .footer .footer__box .footer__tittle {
     font-size: 24px;
     line-height: 36px;
@@ -1635,4 +1627,103 @@ a:hover {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.fs14 {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.fs18 {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.fs24 {
+  font-size: 24px;
+}
+
+.pink {
+  color: #F16D7F !important;
+}
+
+.gray {
+  color: #9F9F9F !important;
+}
+
+.carousel-dark {
+  background-color: #E1E1E1;
+}
+
+.product-name {
+  height: 148px;
+}
+
+@media (max-width: 767px) {
+  .product-name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute !important;
+        justify-content: space-around !important;
+  }
+}
+
+.product-text-wrap {
+  position: relative;
+  margin-top: -30px;
+  background-color: #FFF;
+}
+
+.product-text-box {
+  max-width: 48.7%;
+}
+
+@media (max-width: 767px) {
+  .product-text-box {
+    max-width: 91%;
+  }
+}
+
+.product-tittle {
+  margin: 61px 0 12px 0;
+}
+
+.bottom-line {
+  position: relative;
+  height: 17px;
+}
+
+.bottom-line::before {
+  position: absolute;
+  content: '';
+  width: 63px;
+  height: 3px;
+  background-color: #F16D7F;
+  margin: 12px 0 0 -31px;
+}
+
+.product-text {
+  margin: 48px 0 32px 0;
+}
+
+/* .dropdown-btn {
+    background-color: transparent;
+    color: $dark-gray-color;
+    border: none;
+    text-transform: uppercase;
+    @include font(14px, 17px, 400);
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:active,
+.dropdown-btn:focus {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    outline: transparent;
+} */
 /*# sourceMappingURL=style.css.map */

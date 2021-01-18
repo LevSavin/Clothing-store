@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Product</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__logo-box">
+                <a href="index.html" class="header__logo"><img src="./img/logo.svg" alt="logo" width="44"
+                        height="38"></a>
+                <div class="header__search">
+                    <button class="button header__button"><img src="./img/loupe.svg" alt="лупа" width="26"
+                            height="27"></button>
+                </div>
+            </div>
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <button class="button header__button">
+                        <img src="img/icon-user.svg" alt="icon-user">
+                    </button>
+                </li>
+                <li class="header__menu-item">
+                    <button class="button header__button">
+                        <img src="img/icon-cart.svg" alt="icon-cart">
+                    </button>
+                </li>
+                <li class="header__menu-item header__navbar" tabindex="1">
+                    <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon-hamburger">
+                    <div class="navbar">
+                        <button class="navbar__close button">
+                            <img src="img/navbar-close.svg" alt="navbar__close">
+                        </button>
+                        <h2 class="navbar__tittle">Menu</h2>
+                        <ul class="navbar__all-categories">
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">man</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Denim</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">woman</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets & Coats</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbar__categorie">
+                                <ul class="navbar-list">
+                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">kids</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets &amp; Coats</a>
+                                    </li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
+                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="container product-name d-flex justify-content-between align-items-center">
+                <h1 class="fs24 pink text-uppercase">new arrivals</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item text-uppercase"><a class="gray" href="#">home</a></li>
+                        <li class="breadcrumb-item text-uppercase"><a class="gray" href="#">men</a></li>
+                        <li class="breadcrumb-item active fw-bold text-uppercase pink" aria-current="page">new arrivals
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="./img/product-1-desctop.jpg">
+                            <source media="(min-width: 376px)" srcset="./img/product-1-tablet.jpg">
+                            <source media="(min-width: 0px)" srcset="./img/product-1-mobile.jpg">
+                            <img src="./img/product-1-desctop.jpg" class="d-block w-100" alt="product 1">
+                        </picture>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="./img/product-2-desctop.jpg">
+                            <source media="(min-width: 376px)" srcset="./img/product-2-tablet.jpg">
+                            <source media="(min-width: 0px)" srcset="./img/product-2-mobile.jpg">
+                            <img src="./img/product-1-desctop.jpg" class="d-block w-100" alt="product 1">
+                        </picture>
+                    </div>
+                    <div class="carousel-item">
+                        <picture>
+                            <source media="(min-width: 769px)" srcset="./img/product-3-desctop.jpg">
+                            <source media="(min-width: 376px)" srcset="./img/product-3-tablet.jpg">
+                            <source media="(min-width: 0px)" srcset="./img/product-3-mobile.jpg">
+                            <img src="./img/product-1-desctop.jpg" class="d-block w-100" alt="product 1">
+                        </picture>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="container d-flex justify-content-center product-text-wrap">
+                <div class="product-text-box">
+                    <div class="row product-tittle">
+                        <h2 class="fs14 pink text-uppercase fw-light text-center">women collection</h2>
+                        <span class="bottom-line text-center"></span>
+                    </div>
+                    <div class="row">
+                        <span class="fs18 gray text-uppercase fw-light text-center">moschino cheap and chic</span>
+                    </div>
+                    <div class="row product-text">
+                        <span class="fs14 gray fw-light text-center">Compellingly actualize fully researched processes
+                            before proactive outsourcing.
+                            Progressively syndicate collaborative architectures before cutting-edge services. Completely
+                            visualize parallel core competencies rather than exceptional portals.</span>
+                    </div>
+                    <div class="row">
+                        <span class="fs24 pink fw-light text-center">$561</span>
+                    </div>
+                    <div class="row">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item active" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__box">
+            <div class="footer__wrap container">
+                <div class="footer__content">
+                    <div class="footer__image"></div>
+                    <p class="footer__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus
+                        condimentum“</p>
+                </div>
+                <div class="footer__subscribe">
+                    <h2 class="footer__tittle">Subscribe</h2>
+                    <p class="footer__subtittle">for our newletter and promotion</p>
+                    <form action="#" class="footer__form" tabindex="1">
+                        <input class="footer__field-text" type="email" placeholder="Enter Your Email">
+                        <button class="button footer__button-submit" type="submit">
+                            <span>Subscribe</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer__holder">
+            <div class="footer__wrapper container">
+                <p class="footer__wrapper_text">&copy; 2021 Brand All Rights Reserved.</p>
+                <ul class="footer__social-list">
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-facebook.svg" alt="icon-facebook"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-instagram.svg" alt="icon-instagram"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-twitter.svg" alt="icon-twitter"></a></li>
+                    <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                src="img/icon-pinterast.svg" alt="icon-pinterast"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/bootstrap.js"></script>
+</body>
+
+</html>
