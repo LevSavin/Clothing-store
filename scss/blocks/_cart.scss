@@ -39,6 +39,10 @@
 
     .cart__goods {
         width: 57.2%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
         @include tablet-max {
             width: 100%;
@@ -49,6 +53,10 @@
         display: flex;
         box-shadow: 15px 15px 29px 2px $light-gray-color;
         margin: 0 0 40px 0;
+
+        @include mobile {
+            margin: 0px 0 32px 0;
+        }
     }
 
     .cart__goods_close {
@@ -56,16 +64,29 @@
         align-self: flex-start;
         line-height: 1px;
         margin: 6px 22px 0 0;
+
+        @include mobile {
+            margin: 0 12px 0 0;
+        }
     }
 
     .cart__goods_close-img {
         width: 18px;
         height: 18px;
+
+        @include mobile {
+            width: 10px;
+            height: 10px;
+        }
     }
 
     .cart__goods_item-image {
-        width: 262px;
-        height: 306px;
+        width: 40.2%;
+        height: auto;
+
+        @include mobile {
+            width: 46.2%;
+        }
     }
 
     .cart__goods_item-wrap {
@@ -73,18 +94,33 @@
         display: flex;
         justify-content: space-between;
         margin: 22px 0 0 31px;
+
+        @include mobile {
+            margin: 17px 0 0 17px;
+        }
     }
 
     .cart__goods_item-tittle {
+        width: 70%;
         @include font (24px, 28px);
         text-transform: uppercase;
         margin: 0 0 42px 0;
+
+        @include mobile {
+            @include font (16px, 19px);
+            width: 96%;
+            margin: 0 0 25px 0;
+        }
     }
 
     .cart__goods_char-item {
         @include font (22px, 26px);
         color: $text-dark-grey-color;
         padding: 0 0 6px 0;
+
+        @include mobile {
+            @include font (14px, 16px);
+        }
     }
 
     .cart__goods_char-price {
@@ -96,16 +132,39 @@
     }
 
     .cart__goods_buttons {
-        padding: 32px 0 128px 0;
+        width: 69.4%;
+        margin: 32px 0 128px 0;
         display: flex;
         justify-content: space-between;
+
+        @include tablet {
+            margin: 22px 0 64px 0%;
+        }
+
+        @include mobile {
+            margin: 0px 0 48px 0;
+            width: 100%;
+        }
     }
 
     .cart__goods_button {
+        height: 50px;
         border: 1px solid $gray-color;
-        padding: 16px 40px;
+        padding: 16px 38px;
         @include font(17px, 17px, 300);
         text-transform: uppercase;
+
+        @include tablet {
+            width: 45%;
+            padding: 0px 0px;
+        }
+
+        @include mobile {
+            width: 46.7%;
+            height: 33px;
+            @include font(12px, 14px, 400);
+            padding: 0px 0px;
+        }
     }
 
     .cart__goods_wrap {
@@ -138,8 +197,12 @@
     .cart__form_field {
         margin: 20px 0 0 0;
         box-sizing: border-box;
-        max-width: 100%;
+        width: 100%;
         min-height: 45px;
+
+        @include tablet {
+            width: 80%;
+        }
     }
 
     .cart__form_submit {
@@ -148,7 +211,6 @@
         @include font(11px, 13px, 300);
         width: 28.1%;
         min-height: 45px;
-        padding: 11px 14px;
         margin: 23px 0 0 0;
     }
 
@@ -204,6 +266,10 @@
         @include font(16px, 19px, 300);
         width: 75.9%;
         min-height: 50px;
+
+        @include tablet {
+            width: 97%;
+        }
     }
 
     .cart__order_text-box {
