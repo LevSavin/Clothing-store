@@ -1,0 +1,89 @@
+.fs14 {
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.fs18 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.pink {
+    color: $pink-color !important;
+}
+
+.gray {
+    color: $gray-color !important;
+}
+
+.carousel-dark {
+    background-color: $light-gray-color;
+}
+
+.product-name {
+    height: 148px;
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around !important;
+    }
+}
+
+.product-text-wrap {
+    position: relative;
+    margin-top: -30px;
+    background-color: $white-color;
+}
+
+.product-text-box {
+    max-width: 48.7%;
+
+    @include mobile {
+        max-width: 91%;
+    }
+
+}
+
+.product-tittle {
+    margin: 61px 0 12px 0;
+}
+
+.bottom-line {
+    position: relative;
+    height: 17px;
+}
+
+.bottom-line::before {
+    position: absolute;
+    content: '';
+    width: 63px;
+    height: 3px;
+    background-color: $pink-color;
+    margin: 12px 0 0 -31px;
+}
+
+.product-text {
+    margin: 48px 0 32px 0;
+}
+
+/* .dropdown-btn {
+    background-color: transparent;
+    color: $dark-gray-color;
+    border: none;
+    text-transform: uppercase;
+    @include font(14px, 17px, 400);
+}
+
+.dropdown-btn:hover,
+.dropdown-btn:active,
+.dropdown-btn:focus {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    outline: transparent;
+} */

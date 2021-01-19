@@ -24,7 +24,7 @@
 
             @include tablet {
                 @include direction-column;
-                min-height: 500px;
+                min-height: 421px;
                 padding: 53px 0 140px 0;
             }
 
@@ -43,7 +43,7 @@
         .footer__text {
             @include font(20px, 24px);
             color: $black-color;
-            margin-top: 20px;
+            margin: 20px 0 59px 0;
         }
 
         .footer__image::before {
@@ -55,11 +55,7 @@
             color: $black-color;
             text-transform: uppercase;
 
-            @include tablet {
-                @include font(18px, 29px, 400);
-            }
-
-            @include mobile {
+            @include tablet-max {
                 @include font(24px, 36px, 700);
             }
         }
