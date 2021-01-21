@@ -10,10 +10,10 @@
 
     .header__logo {
         margin: 0 41px 0 0;
-    }
 
-    .header__logo:hover {
-        opacity: 1;
+        &:hover {
+            opacity: 1;
+        }
     }
 
     .header__menu-list,

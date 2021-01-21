@@ -25,7 +25,7 @@
 }
 
 .product-name {
-    height: 148px;
+    min-height: 148px;
 
     @include mobile {
         display: flex;
@@ -38,15 +38,6 @@
     position: relative;
     margin-top: -30px;
     background-color: $white-color;
-}
-
-.product-text-box {
-    max-width: 48.7%;
-
-    @include mobile {
-        max-width: 91%;
-    }
-
 }
 
 .product-tittle {
@@ -69,21 +60,71 @@
 
 .product-text {
     margin: 48px 0 32px 0;
+    max-width: 48.7%;
+
+    @include mobile {
+        max-width: 96%;
+    }
 }
 
-/* .dropdown-btn {
+.dropdown-btn {
     background-color: transparent;
     color: $dark-gray-color;
     border: none;
     text-transform: uppercase;
     @include font(14px, 17px, 400);
+
+    @include mobile {
+        @include font(10px, 12px, 400);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: inherit;
+        color: inherit;
+        border: none;
+    }
 }
 
-.dropdown-btn:hover,
-.dropdown-btn:active,
-.dropdown-btn:focus {
-    background-color: inherit;
-    color: inherit;
-    border: none;
-    outline: transparent;
-} */
+.product-buttons-box {
+    margin: 130px 0 49px 0;
+
+    @include mobile {
+        margin: 81px 0 64px 0;
+    }
+
+    @include mobile-under {
+       flex-direction: column; 
+       align-items: center;
+    }
+}
+
+.btn-outline-danger {
+    width: 211px;
+    min-height: 47px;
+    margin: 0 0 65px 0;
+}
+
+.button-icon {
+    margin: -40px;
+    margin: 0 5% 0 0px;
+}
+
+.icon-cart {
+    width: 26px;
+    height: 24px;
+}
+
+svg path {
+    fill: inherit;
+}
+
+use.icon-cart {
+    fill: $pink-color;
+    transition: $transition-duration;
+}
+
+.btn-outline-danger:hover use.icon-cart {
+    fill: $white-color;
+}
