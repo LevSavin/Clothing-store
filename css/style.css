@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'latoblack';
+  src: url("lato-black-webfont.woff2") format("woff2"), url("lato-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latobold';
+  src: url("lato-bold-webfont.woff2") format("woff2"), url("lato-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latolight';
+  src: url("lato-light-webfont.woff2") format("woff2"), url("lato-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url("lato-regular-webfont.woff2") format("woff2"), url("lato-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latohairline';
+  src: url("lato-thin-webfont.woff2") format("woff2"), url("lato-thin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body, button, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -149,6 +184,68 @@ a:hover {
 @media (max-width: 1599px) {
   .container {
     width: 95.8%;
+  }
+}
+
+.tracking-in-expand {
+  -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-focus-in {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
   }
 }
 
@@ -331,6 +428,19 @@ a:hover {
   text-transform: uppercase;
   position: relative;
   padding: 0 0 0 28px;
+  max-width: 420px;
+}
+
+@media (min-width: 768px) and (max-width: 1599px) {
+  .name .name__header {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .name .name__header {
+    max-width: 280px;
+  }
 }
 
 .name .name__header::before {
@@ -930,6 +1040,12 @@ a:hover {
   }
 }
 
+@media (max-width: 374px) {
+  .footer .footer__box .footer__subscribe {
+    min-width: 230px;
+  }
+}
+
 .footer .footer__box .footer__form {
   background-color: #E1E1E1;
   border: 1px solid transparent;
@@ -1302,6 +1418,10 @@ a:hover {
   }
 }
 
+.cart .cart__goods_list {
+  width: 100%;
+}
+
 .cart .cart__goods_item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1415,7 +1535,7 @@ a:hover {
 }
 
 .cart .cart__goods_buttons {
-  width: 69.4%;
+  width: 95%;
   margin: 32px 0 128px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1428,6 +1548,7 @@ a:hover {
 @media (min-width: 768px) and (max-width: 1599px) {
   .cart .cart__goods_buttons {
     margin: 22px 0 64px 0%;
+    width: 69.4%;
   }
 }
 
@@ -1439,7 +1560,8 @@ a:hover {
 }
 
 .cart .cart__goods_button {
-  height: 50px;
+  min-height: 50px;
+  color: #6F6E6E;
   border: 1px solid #9F9F9F;
   padding: 16px 38px;
   font-size: 17px;
@@ -1458,7 +1580,7 @@ a:hover {
 @media (max-width: 767px) {
   .cart .cart__goods_button {
     width: 46.7%;
-    height: 33px;
+    min-height: 33px;
     font-size: 12px;
     line-height: 14px;
     font-weight: 400;
@@ -1475,7 +1597,7 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 31.6%;
+  width: 55.5%;
 }
 
 @media (max-width: 1599px) {
@@ -1655,7 +1777,7 @@ a:hover {
 }
 
 .product-name {
-  height: 148px;
+  min-height: 148px;
 }
 
 @media (max-width: 767px) {
@@ -1678,16 +1800,6 @@ a:hover {
   background-color: #FFF;
 }
 
-.product-text-box {
-  max-width: 48.7%;
-}
-
-@media (max-width: 767px) {
-  .product-text-box {
-    max-width: 91%;
-  }
-}
-
 .product-tittle {
   margin: 61px 0 12px 0;
 }
@@ -1708,22 +1820,88 @@ a:hover {
 
 .product-text {
   margin: 48px 0 32px 0;
+  max-width: 48.7%;
 }
 
-/* .dropdown-btn {
-    background-color: transparent;
-    color: $dark-gray-color;
-    border: none;
-    text-transform: uppercase;
-    @include font(14px, 17px, 400);
+@media (max-width: 767px) {
+  .product-text {
+    max-width: 96%;
+  }
 }
 
-.dropdown-btn:hover,
-.dropdown-btn:active,
-.dropdown-btn:focus {
-    background-color: inherit;
-    color: inherit;
-    border: none;
-    outline: transparent;
-} */
+.dropdown-btn {
+  background-color: transparent;
+  color: #6F6E6E;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .dropdown-btn {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+  }
+}
+
+.dropdown-btn:hover, .dropdown-btn:active, .dropdown-btn:focus {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
+.product-buttons-box {
+  margin: 130px 0 49px 0;
+}
+
+@media (max-width: 767px) {
+  .product-buttons-box {
+    margin: 81px 0 64px 0;
+  }
+}
+
+@media (max-width: 374px) {
+  .product-buttons-box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.btn-outline-danger {
+  width: 211px;
+  min-height: 47px;
+  margin: 0 0 65px 0;
+}
+
+.button-icon {
+  margin: -40px;
+  margin: 0 5% 0 0px;
+}
+
+.icon-cart {
+  width: 26px;
+  height: 24px;
+}
+
+svg path {
+  fill: inherit;
+}
+
+use.icon-cart {
+  fill: #F16D7F;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.btn-outline-danger:hover use.icon-cart {
+  fill: #FFF;
+}
 /*# sourceMappingURL=style.css.map */

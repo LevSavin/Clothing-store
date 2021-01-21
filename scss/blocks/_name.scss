@@ -13,6 +13,15 @@
         text-transform: uppercase;
         position: relative;
         padding: 0 0 0 28px;
+        max-width: 420px;
+
+        @include tablet {
+            max-width: 320px; 
+        }
+        
+        @include mobile {
+            max-width: 280px; 
+        }
     }
 
     .name__header::before {

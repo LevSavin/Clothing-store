@@ -9,11 +9,11 @@
         background-repeat: no-repeat;
 
         @include mobile {
-            background-image: url(../img/bg-footer-tablet.jpg); 
+            background-image: url(../img/bg-footer-tablet.jpg);
         }
 
-        @include mobile-under{
-            background-image: url(../img/bg-footer-mobile.jpg); 
+        @include mobile-under {
+            background-image: url(../img/bg-footer-mobile.jpg);
         }
 
         .footer__wrap {
@@ -87,6 +87,10 @@
             @include mobile {
                 margin: 0;
             }
+
+            @include mobile-under {
+                min-width: 230px;
+            }
         }
 
         .footer__form {
@@ -98,13 +102,14 @@
             @include justify-content-space-between;
             outline: transparent;
             @include transition-duration($transition-duration);
-                   }
 
-        .footer__form:focus-within, .footer__form:hover { 
-            border-color: $pink-color-opacity;
-            outline: transparent;
+            &:focus-within,
+            &:hover {
+                border-color: $pink-color-opacity;
+                outline: transparent;
+            }                       
         }
-        
+
         .footer__field-text {
             padding: 0 0 0 22px;
             width: 100%;
