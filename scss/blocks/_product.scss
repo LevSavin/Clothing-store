@@ -109,22 +109,10 @@
 .button-icon {
     margin: -40px;
     margin: 0 5% 0 0px;
-}
-
-.icon-cart {
-    width: 26px;
-    height: 24px;
-}
-
-svg path {
-    fill: inherit;
-}
-
-use.icon-cart {
     fill: $pink-color;
     transition: $transition-duration;
 }
 
-.btn-outline-danger:hover use.icon-cart {
+.btn-outline-danger:hover .button-icon-1 {
     fill: $white-color;
 }

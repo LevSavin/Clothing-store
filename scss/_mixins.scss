@@ -29,10 +29,10 @@
 }
 
 @mixin transition-duration($transition-duration) {
-    transition-duration: ($transition-duration);
     -webkit-transition-duration: ($transition-duration);
     -moz-transition-duration: ($transition-duration);
     -o-transition-duration: ($transition-duration);
+    transition-duration: ($transition-duration);
 }
 
 @mixin border-radius($radius) {
@@ -43,50 +43,50 @@
 }
 
 @mixin align-items($property) {
-    align-items: ($property);
     -webkit-box-align: ($property);
     -moz-box-align: ($property);
     -ms-box-align: ($property);
+    align-items: ($property);
 }
 
 @mixin align-content-space-around {
-    align-content: space-around;
     -webkit-align-content: space-around;
     -ms-flex-line-pack: distribute;
+    align-content: space-around;
 }
 
 @mixin justify-content-space-between {
-    justify-content: space-between;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-box-pack: justify;
     -moz-box-pack: justify;
+    justify-content: space-between;
 }
 
 @mixin justify-content-center {
-    justify-content: center;
     -moz-box-pack: center;
     -ms-box-pack: center;
+    justify-content: center;
 }
 
 @mixin direction-column {
-    flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
     -ms-box-direction: normal;
     -ms-flex-direction: column;
     -ms-box-orient: vertical;
+    flex-direction: column;
 }
 
 @mixin flex-wrap {
-    flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 @mixin flex-flow {
-    flex-flow: column wrap;
     -webkit-flex-flow: column wrap;
     -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
 }
