@@ -1,0 +1,228 @@
+.catalog {
+    .catalog__name {
+        background-color: $bcr-name;
+    }
+
+    .catalog__name_box {
+        min-height: 148px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mobile {
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+    .catalog__tittle {
+        @include font(24px, 29px);
+        color: $pink-color;
+        text-transform: uppercase;
+
+        @include mobile-under {
+            text-align: center;
+        }
+    }
+
+    .catalog__breadcrumb_list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include mobile-under {
+            justify-content: center;
+        }
+    }
+
+    .catalog__breadcrumb_item {
+        @include font(14px, 17px, 300);
+        text-transform: uppercase;
+        color: $dark-gray-color;
+    }
+
+    .catalog__breadcrumb_space {
+        margin: 0 5px 0 5px;
+    }
+
+    .catalog__breadcrumb_item-active {
+        @include font(14px, 17px, 700);
+        text-transform: uppercase;
+        color: $pink-color;
+    }
+
+    .catalog__filters {
+        display: flex;
+        align-items: center;
+        min-height: 132px;
+
+        @include tablet-max {
+            min-height: 81px;
+        }
+
+        @include mobile {
+            margin: 0 10px 0 0;
+        }
+    }
+
+    .catalog__filters_dropdown {
+        position: relative;
+
+        &:focus-within .filter-menu {
+            display: flex;
+            color: $pink-color;
+        }
+    }
+
+    .catalog__filters_dropdown-button {
+        position: relative;
+        z-index: 2;
+        margin: 0 0 0 16px;
+        outline: 1px transparent;
+    }
+
+    .catalog__filters_dropdown-button:focus {
+        color: $pink-color;
+
+        & .catalog__filters_dropdown-icon {
+            transition-duration: $transition-duration;
+            fill: $pink-color;
+        }
+    }
+
+    .catalog__filters_dropdown-text {
+        @include font (14px, 16px, 600);
+        text-transform: uppercase;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .catalog__filters_dropdown-icon {
+        margin: 0 0 0 11px;
+        fill: $black-color;
+
+        @include mobile {
+            width: 37px;
+            height: 25px;
+        }
+    }
+
+    .filter-menu {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: -13px;
+        left: 0px;
+        min-height: 531px;
+        width: 360px;
+        @include direction-column;
+        background-color: $white-color;
+        box-shadow: 7px 7px 14px 2px #E1E1E1;
+
+        &:hover {
+            display: flex;
+        }
+
+        @include mobile {
+            width: 92vw;
+        }
+    }
+
+    .filter-menu__item {
+        text-transform: uppercase;
+        color: $pink-color;
+        margin: 32px 0 0 33px;
+    }
+
+    .filter-menu__item:first-child {
+        margin: 51px 0 0 33px;
+    }
+
+    .filter-menu__category-item {
+        margin: 11px 0 0 0;
+    }
+
+    .filter-menu__category-item:first-of-type {
+        margin: 36px 0 0 0
+    }
+
+    .filter-menu__category-tittle {
+        color: $dark-gray-color;
+    }
+
+    @media (max-width: $desktop-width) {
+        .header {
+            .navbar {
+                top: 50px;
+                left: -142px;
+                min-width: 200px;
+                min-height: 610px;
+                background-color: $white-color;
+            }
+        }
+    }
+
+    .catalog__content {
+        @include mobile {
+            align-items: center;
+        }
+    }
+
+    .catalog__list {
+        min-height: 1192px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        @include justify-content-space-between;
+
+        @include tablet {
+            grid-template-columns: repeat(2, auto);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, auto);
+            @include justify-content-center;
+        }
+    }
+
+    .catalog__item {
+        display: flex;
+        @include direction-column;
+        @include justify-content-space-between;
+        max-width: 360px;
+        margin: 0 0 30px 0;
+    }
+
+    .catalog__picture {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+
+        @include mobile-under {
+            width: 91vw;
+            min-width: 91vw;
+            height: auto;
+        }
+    }
+
+    .catalog__item_text {
+        margin: 25px 0 12px 18px;
+        @include font(13px, 16px);
+        text-transform: uppercase;
+        color: $black-color;
+
+    }
+
+    .catalog__item_subtext {
+        margin: 0 0 0 18px;
+        font-weight: 300;
+        color: $gray-color;
+    }
+
+    .catalog__item_price {
+        margin: 18px 0 20px 18px;
+        @include font(16px, 19px);
+        color: $pink-color;
+    }
+}

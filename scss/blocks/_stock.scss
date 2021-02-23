@@ -19,10 +19,7 @@
     .stock__item {
         width: 31%;
         height: 260px;
-        display: flex;
-        @include align-items(center);
-        @include justify-content-center;
-        @include direction-column;
+        background-color: $darkness-gray;
 
         @include tablet {
             width: 31.5%;
@@ -30,6 +27,10 @@
 
         @include mobile {
             width: 343px;
+        }
+
+        @include mobile-under {
+            width: 91vw;
         }
     }
 
@@ -46,13 +47,21 @@
     }
 
     .stock__item--last {
-        width: 100%;
         height: 180px;
         background-image: url(../img/stock-1.jpg);
+        background-color: $darkness-gray;
 
-        @include mobile {
-            width: 343px;
+        @media (min-width: $tables-width) {
+            width: 100%;
         }
+    }
+
+    .stock__item_link {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        width: 100%;
+        height: 100%;
     }
 
     .stock_women {
@@ -68,16 +77,21 @@
     }
 
     .stock__item-name {
+        width: 100%;
+        text-align: center;
         @include font(16px, 19px, 400);
+        text-transform: uppercase;
         letter-spacing: 0.1em;
         color: $white-color;
-        text-transform: uppercase;
+
     }
 
     .stok_item-category {
+        width: 100%;
+        text-align: center;
         @include font (24px, 29px, 700);
+        text-transform: uppercase;
         letter-spacing: 0.1em;
         color: $pink-color;
-        text-transform: uppercase;
     }
 }

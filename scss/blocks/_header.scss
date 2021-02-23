@@ -10,7 +10,7 @@
 
     .header__logo {
         margin: 0 41px 0 0;
-
+      
         &:hover {
             opacity: 1;
         }
@@ -115,7 +115,7 @@
             left: -142px;
             min-width: 200px;
             min-height: 610px;
-            background-color: $white-color-opacity;
+            background-color: $white-color;
         }
     }
 }

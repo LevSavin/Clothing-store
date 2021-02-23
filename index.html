@@ -12,30 +12,28 @@
     <header class="header">
         <div class="header__container container">
             <div class="header__logo-box">
-                <a href="#" class="header__logo"><img src="./img/logo.svg" alt="logo" width="44" height="38"></a>
+                <a href="#" class="header__logo"><img src="./img/logo.svg" alt="logotype" width="44" height="38"></a>
                 <div class="header__search">
-                    <button class="button header__button"><img src="./img/loupe.svg" alt="лупа" width="26"
-                            height="27"></button>
+                    <button class="button header__button" type="button"><img src="./img/loupe.svg" alt="loupe"
+                            width="26" height="27"></button>
                 </div>
             </div>
             <ul class="header__menu-list">
                 <li class="header__menu-item">
-                    <button class="button header__button">
-                        <img src="img/icon-user.svg" alt="icon-user">
-                    </button>
+                    <a href="registration.html"><img src="img/icon-user.svg" alt="icon user" width="29" height="29"></a>
                 </li>
                 <li class="header__menu-item">
-                    <button class="button header__button">
-                        <img src="img/icon-cart.svg" alt="icon-cart">
-                    </button>
+                    <a href="cart.html" class="header__links-pages"><img src="img/icon-cart.svg" alt="icon cart"
+                            width="32" height="29"></a>
                 </li>
                 <li class="header__menu-item header__navbar" tabindex="1">
-                    <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon-hamburger">
+                    <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon hamburger"
+                        width="32" height="23">
                     <div class="navbar">
-                        <button class="navbar__close button">
-                            <img src="img/navbar-close.svg" alt="navbar__close">
+                        <button class="navbar__close button" type="button">
+                            <img src="img/navbar-close.svg" alt="navbar close" width="12" height="12">
                         </button>
-                        <h2 class="navbar__tittle">Menu</h2>
+                        <a href="catalog.html" class="navbar__tittle">Catalog</a>
                         <ul class="navbar__all-categories">
                             <li class="navbar__categorie">
                                 <ul class="navbar-list">
@@ -79,9 +77,10 @@
     </header>
     <main class="main">
         <section class="name">
-            <img class="name__img" src="./img/man-in-jacket.jpg" alt="мужчина в пальто" width="800" height="765">
+            <img class="name__img" src="./img/man-in-jacket.jpg" alt="man in jacket" width="800" height="765">
             <div class="name__content">
-                <h1 class="name__header text-focus-in">The brand<span class="name__header-span"> of&nbsp;luxxerious fashion</span></h1>
+                <h1 class="name__header text-focus-in">The brand<span class="name__header-span"> of&nbsp;luxxerious
+                        fashion</span></h1>
             </div>
         </section>
 
@@ -89,20 +88,28 @@
             <h2 class="visually-hidden">Discounts</h2>
             <ul class="stock__list">
                 <li class="stock__item stock_women">
-                    <p class="stock__item-name">30% off</p>
-                    <p class="stok_item-category">for women</p>
+                    <a href="product.html" class="stock__item_link">
+                        <p class="stock__item-name">30% off</p>
+                        <p class="stok_item-category">for women</p>
+                    </a>
                 </li>
                 <li class="stock__item stock_men">
-                    <p class="stock__item-name">hot deal</p>
-                    <p class="stok_item-category">for men</p>
+                    <a href="product.html" class="stock__item_link">
+                        <p class="stock__item-name">hot deal</p>
+                        <p class="stok_item-category">for men</p>
+                    </a>
                 </li>
                 <li class="stock__item stock_kids">
-                    <p class="stock__item-name">new arrivals</p>
-                    <p class="stok_item-category">for kids</p>
+                    <a href="product.html" class="stock__item_link">
+                        <p class="stock__item-name">new arrivals</p>
+                        <p class="stok_item-category">for kids</p>
+                    </a>
                 </li>
                 <li class="stock__item stock__item--last">
-                    <p class="stock__item-name">luxirous &amp; trendy</p>
-                    <p class="stok_item-category">accesories</p>
+                    <a href="product.html" class="stock__item_link">
+                        <p class="stock__item-name">luxirous &amp; trendy</p>
+                        <p class="stok_item-category">accesories</p>
+                    </a>
                 </li>
             </ul>
         </section>
@@ -112,10 +119,10 @@
             <ul class="featured__list">
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-1.jpg" alt="featured_image-1" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-1.jpg" alt="man in blue jacket" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -127,10 +134,10 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-2.jpg" alt="featured_image-2" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-2.jpg" alt="woman in black suit" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -142,10 +149,10 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-3.jpg" alt="featured_image-3" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-3.jpg" alt="man in sweatshirt and shorts" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -157,10 +164,10 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-4.jpg" alt="featured_image-4" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-4.jpg" alt="man in t-shirt and trousers" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -172,10 +179,10 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-5.jpg" alt="featured_image-5" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-5.jpg" alt="woman in blue jacket" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -187,10 +194,10 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__picture">
-                        <img src="img/featured-image-6.jpg" alt="featured_image-6" width="360" height="420">
+                        <img class="featured__picture_image" src="img/featured-image-6.jpg" alt="woman in striped blouse" width="360" height="420">
                         <div class="featured__image-box">
                             <button class="button featured__item-button" type="button">
-                                <img src="img/icon-cart.svg" alt="icon-cart">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
                                 <span class="featured__item-button_text">Add to Cart</span>
                             </button>
                         </div>
@@ -241,7 +248,7 @@
                 <div class="footer__subscribe">
                     <h2 class="footer__tittle">Subscribe</h2>
                     <p class="footer__subtittle">for our newletter and promotion</p>
-                    <form action="#" class="footer__form" tabindex="1">
+                    <form action="#" class="footer__form">
                         <input class="footer__field-text" type="email" placeholder="Enter Your Email">
                         <button class="button footer__button-submit" type="submit">
                             <span>Subscribe</span>
@@ -255,13 +262,13 @@
                 <p class="footer__wrapper_text">&copy; 2021 Brand All Rights Reserved.</p>
                 <ul class="footer__social-list">
                     <li class="footer__social-item"><a href="#" class="footer__social-link"><img
-                                src="img/icon-facebook.svg" alt="icon-facebook"></a></li>
+                                src="img/icon-facebook.svg" alt="icon facebook" width="32" height="32"></a></li>
                     <li class="footer__social-item"><a href="#" class="footer__social-link"><img
-                                src="img/icon-instagram.svg" alt="icon-instagram"></a></li>
+                                src="img/icon-instagram.svg" alt="icon instagram" width="32" height="32"></a></li>
                     <li class="footer__social-item"><a href="#" class="footer__social-link"><img
-                                src="img/icon-twitter.svg" alt="icon-twitter"></a></li>
+                                src="img/icon-twitter.svg" alt="icon twitter" width="32" height="32"></a></li>
                     <li class="footer__social-item"><a href="#" class="footer__social-link"><img
-                                src="img/icon-pinterast.svg" alt="icon-pinterast"></a></li>
+                                src="img/icon-pinterast.svg" alt="icon pinterast" width="32" height="32"></a></li>
                 </ul>
             </div>
         </div>
