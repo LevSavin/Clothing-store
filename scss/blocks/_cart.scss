@@ -49,10 +49,6 @@
         }
     }
 
-    .cart__goods_list {
-        width: 100%;
-    }
-
     .cart__goods_item {
         display: flex;
         box-shadow: 15px 15px 29px 2px $light-gray-color;
@@ -133,6 +129,11 @@
 
     .cart__goods_char-quantity {
         margin: 0 0 0 40px;
+    }
+
+    .cart__goods-wrap {
+        display: block;
+        width: 100%;
     }
 
     .cart__goods_buttons {

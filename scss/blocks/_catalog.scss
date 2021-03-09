@@ -173,16 +173,16 @@
     .catalog__list {
         min-height: 1192px;
         display: grid;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: 1fr 1fr 1fr;;
         @include justify-content-space-between;
 
         @include tablet {
-            grid-template-columns: repeat(2, auto);
+            grid-template-columns: 1fr 1fr;
         }
 
         @include mobile {
-            grid-template-columns: repeat(1, auto);
-            @include justify-content-center;
+            grid-template-columns: 1fr;
+            justify-items: center;;
         }
     }
 
