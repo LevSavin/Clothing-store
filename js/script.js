@@ -1,136 +1,147 @@
-class ApiMock {
+class Api {
     constructor() {
-
+        this.url = "./js/goods.json";
     }
 
-    fetch() {
-        return [{
-                title: "mango people t&#8209;shirt",
-                price: 10,
-                src: "./img/cart-goods-1.jpg",
-                alt: "man in sweatshirt and shorts",
-                color: "red",
-                size: "Xl",
-                quantity: 2
-            },
-            {
-                title: "jacket",
-                price: 150,
-                src: "./img/cart-goods-2.jpg",
-                alt: "man in shirt and trousers",
-                color: "red",
-                size: "Xl",
-                quantity: 1
-            },
-            {
-                title: "shoes",
-                price: 100,
-                src: "./img/cart-goods-1.jpg",
-                alt: "man in sweatshirt and shorts",
-                color: "black",
-                size: "45",
-                quantity: 1
-            },
-            {
-                title: "socks",
-                price: 5,
-                src: "./img/cart-goods-2.jpg",
-                alt: "man in sweatshirt and shorts",
-                color: "red",
-                size: "43-46",
-                quantity: 3
+    fetch(error, success) {
+        let xhr;
+
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    success(JSON.parse(xhr.responseText));
+                } else if (xhr.status > 400) {
+                    error("Ошибка");
+                }
             }
-        ];
+        }
+
+        xhr.open('GET', this.url, true);
+        xhr.send();
+    }
+
+    fetchPromise() {
+        return new Promise((resolve, reject) => {
+            this.fetch(reject, resolve)
+        })
     }
 }
 
 class GoodsItem {
-    constructor(title, price, src, alt, color, size, quantity) {
+    constructor(title, price, src, alt, color, size, id) {
         this.title = title;
         this.price = price;
         this.src = src;
         this.alt = alt;
         this.color = color;
         this.size = size;
-        this.quantity = quantity;
+        this.id = id;
     }
 
     getHtml() {
-        return `<li class="cart__goods_item">
-        <img src=${this.src} alt=${this.alt} class="cart__goods_item-image"
-            width="262" height="306">
-        <div class="cart__goods_item-wrap">
-            <div class="cart__goods_item-text">
-                <h2 class="cart__goods_item-tittle">${this.title}</h2>
-                <ul class="cart__goods_char-list">
-                    <li class="cart__goods_char-item">Price: <span
-                            class="cart__goods_char-price">&dollar;${this.price}</span></li>
-                    <li class="cart__goods_char-item">Color: ${this.color}</li>
-                    <li class="cart__goods_char-item">Size: ${this.size}</li>
-                    <li class="cart__goods_char-item">Quantity: <span
-                            class="cart__goods_char-quantity">${this.quantity}</span></li>
-                </ul>
-            </div>
-            <button class="cart__goods_close button">
-                <img src="img/navbar-close.svg" class="cart__goods_close-img"
-                    alt="cart close">
-            </button>
-        </div>
-     </li>`;
+        return `<li class="featured__item">
+                    <div class="featured__picture">
+                        <img class="featured__picture_image" src="${this.src}" alt="${this.alt}" width="360" height="420">
+                        <div class="featured__image-box">
+                            <button class="button featured__item-button" type="button" id="itemAdd_${this.id}">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
+                                <span class="featured__item-button_text">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                    <a href="#" class="featured__item_text">${this.title}</a>
+                    <p class="featured__item_subtext">Known for her sculptural takes on traditional tailoring,
+                        Australian arbiter of cool Kym Ellery teams up with Moda&nbsp;Operandi.</p>
+                    <p class="featured__item_price">&dollar;${this.price}</p>
+                </li>`;
+    }
+}
+
+class Buttons {
+    constructor() {
+        this.$buttonsAdd = document.querySelector(".featured__list");
+    }
+
+    setButton() {
+        this.$buttonsAdd.addEventListener("click", event => {
+            var button = event.target.closest("button");
+            if (button) { //проверяем, вдруг button-родителя нет
+                this.addToCart(button)
+            }
+        });
+    }
+
+    addToCart(button) {
+        let itemNum = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
+        let selectedItem = goodsList.goods[itemNum];
+
+        if (hasAlready() == undefined) { // если товара нет в корзине, то добавить его
+            let cartItem = Object.create(selectedItem)
+            cartItem.quantity = 1;
+            cartArray.push(cartItem); 
+        }
+
+        function hasAlready() { // проверяем по id, есть ли уже в корзине выбранный товар
+            return cartArray.find(x => x.id === selectedItem.id);
+        }
     }
 }
 
 class GoodsList {
     constructor() {
-        this.api = new ApiMock();
-        this.$goodsList = document.querySelector(".cart__goods_list");
+        this.api = new Api();
+        this.$goodsList = document.querySelector(".featured__list");
         this.goods = [];
+        this.filteredGoods = [];
+
+        const fetch = this.api.fetchPromise();
+
+        fetch.then((data) => {
+                this.onFetchSuccess(data)
+            })
+            .catch((err) => {
+                this.onFetchError(err)
+            });
     }
 
-    fetchGoods() {
-        this.goods = this.api.fetch().map(({
+    onFetchSuccess(data) {
+        this.goods = data.map(({
             title,
             price,
             src,
             alt,
             color,
             size,
-            quantity
-        }) => new GoodsItem(title, price, src, alt, color, size, quantity));
+            id
+        }) => new GoodsItem(title, price, src, alt, color, size, id));
+        this.filteredGoods = this.goods;
+        this.render();
+        this.addBtn();
+    }
+
+    onFetchError(err) {
+        this.$goodsList.insertAdjacentHTML("beforeend", `<h3>${err}</h3>`);
     }
 
     render() {
         this.$goodsList.textContent = "";
-        this.goods.forEach((good) => {
-            this.$goodsList.insertAdjacentHTML('beforeend', good.getHtml());
+        this.filteredGoods.forEach((good) => {
+            this.$goodsList.insertAdjacentHTML("beforeend", good.getHtml());
         })
     }
 
-    countSum() {
-        let initialValue = 0;
-        let sum = this.goods.reduce(function (accumulator, currentValue) {
-            return accumulator + (currentValue.price * currentValue.quantity);
-        }, initialValue);
-        document.querySelector(".cart__order_subtittle-price").textContent = `${sum} \u0024`;
-        document.querySelector(".cart__order_tittle-price").textContent = `${sum} \u0024`;
+    addBtn() {
+        this.buttons = new Buttons();
+        this.buttons.setButton();
     }
-}
 
-class CartItem { // пустой класс для элемента корзины товара 
-    // посчитать стоимость отдельной позиции = количеаство * цена
-    // добавить товар, если товара ещё нет в корзине / увеличить количество, если товар уже имеется в корзине
-    // уменьшить количество / удалить из корзины при количестве = 0
-    // изменить цвет / размер
-}
-
-
-class CartList { // пустой класс для корзины товара 
-    // посчитать итоговую цену по всем позициям
-    // очистить корзину
 }
 
 const goodsList = new GoodsList();
-
-goodsList.fetchGoods();
-goodsList.countSum();
-goodsList.render();
+var cartArray = [];
