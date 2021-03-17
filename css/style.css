@@ -247,52 +247,32 @@ a:hover {
   background-color: #222;
 }
 
-.header .header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.header .header__menu-list {
+  display: -ms-grid;
+  display: grid;
   -webkit-box-align: center;
-  -ms-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
-  -webkit-box-pack: justify;
-  -ms-box-pack: justify;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: auto 1fr auto auto auto;
+      grid-template-columns: auto 1fr auto auto auto;
   min-height: 75px;
 }
 
-.header .header__logo {
-  margin: 0 41px 0 0;
-}
-
-.header .header__logo:hover {
-  opacity: 1;
-}
-
-.header .header__menu-list,
-.header .header__logo-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+@media (max-width: 374px) {
+  .header .header__menu-list {
+    -ms-grid-columns: auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto;
+  }
 }
 
 .header .header__menu-item:not(:last-of-type) {
   margin: 0 25px 0 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 374px) {
   .header .header__menu-item:not(:last-of-type) {
-    display: none;
+    margin: 0 0 0 0;
   }
-}
-
-.header .header__menu-item:nth-of-type(2) {
-  margin: 0 42px 0 0;
 }
 
 .header .header__navbar {
@@ -309,6 +289,12 @@ a:hover {
 @media (max-width: 767px) {
   .header .header__navbar {
     margin: 0 10px 0 0;
+  }
+}
+
+@media (max-width: 374px) {
+  .header .header__navbar {
+    margin: 0 0 0 0;
   }
 }
 
@@ -349,18 +335,18 @@ a:hover {
   padding: 0 0 4px 34px;
 }
 
-.header .navbar-item-tittle {
+.header .navbar-list__item-tittle {
   text-transform: uppercase;
   color: #F16D7F;
   margin: 20px 0 12px 34px;
 }
 
-.header .navbar-item {
+.header .navbar-list__item {
   color: #6F6E6E;
   margin-left: 54px;
 }
 
-.header .navbar-item:not(:last-of-type) {
+.header .navbar-list__item:not(:last-of-type) {
   margin-bottom: 11px;
 }
 
@@ -1311,7 +1297,7 @@ a:hover {
   background-color: #F8F3F4;
 }
 
-.cart .cart__name_box {
+.cart .cart__name-box {
   min-height: 148px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1322,7 +1308,7 @@ a:hover {
 }
 
 @media (max-width: 767px) {
-  .cart .cart__name_box {
+  .cart .cart__name-box {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;

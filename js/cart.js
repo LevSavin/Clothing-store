@@ -137,7 +137,7 @@ class MenuButtons {
 class CartList {
     constructor() {
         this.api = new ApiMock();
-        this.$cartList = document.querySelector(".cart__goods_list");
+        this.$cartList = document.querySelector(".cart__goods-list");
         this.goods = [];
         this.fetchGoods()
     }
