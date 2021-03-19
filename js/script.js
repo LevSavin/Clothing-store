@@ -66,31 +66,21 @@ class GoodsItem {
 class Buttons {
     constructor() {
         this.$buttonsAdd = document.querySelector(".featured__list");
+        this.$search = document.querySelector('#search');
     }
 
     setButton() {
         this.$buttonsAdd.addEventListener("click", event => {
             var button = event.target.closest("button");
             if (button) { //проверяем, вдруг button-родителя нет
-                this.addToCart(button)
+                goodsList.addToCart(button)
             }
         });
     }
 
-    addToCart(button) {
-        let itemNum = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
-        let selectedItem = goodsList.goods[itemNum];
-
-        if (hasAlready() == undefined) { // если товара нет в корзине, то добавить его
-            let cartItem = Object.create(selectedItem)
-            cartItem.quantity = 1;
-            cartArray.push(cartItem); 
-        }
-
-        function hasAlready() { // проверяем по id, есть ли уже в корзине выбранный товар
-            return cartArray.find(x => x.id === selectedItem.id);
-        }
-    }
+    setSearchHandler(callback) {
+        this.$search.addEventListener('input', callback);
+      }
 }
 
 class GoodsList {
@@ -99,7 +89,7 @@ class GoodsList {
         this.$goodsList = document.querySelector(".featured__list");
         this.goods = [];
         this.filteredGoods = [];
-
+        
         const fetch = this.api.fetchPromise();
 
         fetch.then((data) => {
@@ -139,8 +129,34 @@ class GoodsList {
     addBtn() {
         this.buttons = new Buttons();
         this.buttons.setButton();
+        this.buttons.setSearchHandler((evt) => {
+            this.search(evt.target.value);
+          }) 
     }
 
+    addToCart(button) {
+        let itemNum = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
+        let selectedItem = this.goods[itemNum];
+
+        if (hasAlready() == undefined) { // если товара нет в корзине, то добавить его
+            let cartItem = Object.create(selectedItem)
+            cartItem.quantity = 1;
+            cartArray.push(cartItem); 
+        }
+
+        function hasAlready() { // проверяем по id, есть ли уже в корзине выбранный товар
+            return cartArray.find(x => x.id === selectedItem.id);
+        }
+    }
+
+    search(str) {
+        if (str === '') {
+          this.filteredGoods = this.goods;
+        }
+        const regexp = new RegExp(str, 'gi');
+        this.filteredGoods = this.goods.filter((good) => regexp.test(good.title));
+        this.render();
+      }
 }
 
 const goodsList = new GoodsList();

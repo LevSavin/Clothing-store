@@ -299,7 +299,9 @@ a:hover {
 }
 
 .header .navbar {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: absolute;
   z-index: 1;
   top: 55px;
@@ -313,12 +315,6 @@ a:hover {
   -ms-box-orient: vertical;
   flex-direction: column;
   background-color: #FFF;
-}
-
-.header .navbar:hover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .header .navbar__close {
@@ -629,6 +625,16 @@ a:hover {
   -ms-flex-direction: column;
   -ms-box-orient: vertical;
   flex-direction: column;
+  /* .featured__list {
+        display: flex;
+        @include justify-content-space-between;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+        @include mobile {
+            @include justify-content-center;
+        }
+    } */
 }
 
 @media (min-width: 768px) and (max-width: 1599px) {
@@ -650,36 +656,40 @@ a:hover {
 
 .featured .featured__subtittle {
   color: #9F9F9F;
-  margin: 0 0 48px;
+}
+
+.featured .featured__search {
+  margin: 8px 0 34px 0;
 }
 
 @media (min-width: 768px) and (max-width: 1599px) {
-  .featured .featured__subtittle {
-    margin: 0 0 73px;
+  .featured .featured__search {
+    margin: 8px 0 50px 0;
   }
 }
 
+.featured .featured__search:focus, .featured .featured__search:hover {
+  outline: 2px solid #F16D7F;
+  border-color: transparent;
+}
+
 .featured .featured__list {
-  min-height: 1192px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-box-pack: justify;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (360px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 360px);
+  grid-gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (max-width: 767px) {
   .featured .featured__list {
-    -ms-box-pack: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 

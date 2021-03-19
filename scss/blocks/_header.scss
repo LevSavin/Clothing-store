@@ -38,7 +38,7 @@
     }
 
     .navbar {
-        display: none;
+        display: flex;
         position: absolute;
         z-index: 1;
         top: 55px;
@@ -47,10 +47,6 @@
         min-height: 765px;
         @include direction-column;
         background-color: $white-color;
-
-        &:hover {
-            display: flex;
-        }
     }
 
     .navbar__close {
