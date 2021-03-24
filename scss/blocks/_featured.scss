@@ -19,15 +19,37 @@
 
     .featured__subtittle {
         color: $gray-color;
-        margin: 0 0 48px;
+    }
+
+    .featured__search {
+        margin: 8px 0 34px 0;
+        ;
 
         @include tablet {
-            margin: 0 0 73px;
+            margin: 8px 0 50px 0;
+        }
+
+        &:focus,
+        &:hover {
+            outline: 2px solid $pink-color;
+            border-color: transparent;
         }
     }
 
     .featured__list {
-        min-height: 1192px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 360px);
+        grid-gap: 30px;
+        justify-content: center;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+    }
+
+    /* .featured__list {
         display: flex;
         @include justify-content-space-between;
         align-content: space-between;
@@ -36,7 +58,7 @@
         @include mobile {
             @include justify-content-center;
         }
-    }
+    } */
 
     .featured__item {
         margin: 0 0 30px 0;

@@ -11,15 +11,11 @@
 <body>
     <header class="header">
         <div class="header__container container">
-            <div class="header__logo-box">
-                <a href="index.html" class="header__logo"><img src="./img/logo.svg" alt="logotype" width="44"
-                        height="38"></a>
-                <div class="header__search">
-                    <button class="button header__button" type="button"><img src="./img/loupe.svg" alt="loupe"
-                            width="26" height="27"></button>
-                </div>
-            </div>
             <ul class="header__menu-list">
+                <li class="header__menu-item"><a href="index.html" class="header__logo"><img src="./img/logo.svg"
+                            alt="logotype" width="44" height="38"></a></li>
+                <li class="header__menu-item"><button class="button header__button" type="button"><img
+                            src="./img/loupe.svg" alt="loupe" width="26" height="27"></button></li>
                 <li class="header__menu-item">
                     <a href="#"><img src="img/icon-user.svg" alt="icon user" width="29" height="29"></a>
                 </li>
@@ -28,46 +24,66 @@
                             width="32" height="29"></a>
                 </li>
                 <li class="header__menu-item header__navbar" tabindex="1">
-                    <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon hamburger"
-                        width="32" height="23">
-                    <div class="navbar">
-                        <button class="navbar__close button" type="button">
+                    <button class="button header__menu-button" type="button" id="openNavbar">
+                        <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon hamburger"
+                            width="32" height="23">
+                    </button>
+                    <div class="navbar visually-hidden">
+                        <button class="navbar__close button" id="navbarClose" type="button">
                             <img src="img/navbar-close.svg" alt="navbar close" width="12" height="12">
                         </button>
                         <a href="catalog.html" class="navbar__tittle">Catalog</a>
                         <ul class="navbar__all-categories">
                             <li class="navbar__categorie">
                                 <ul class="navbar-list">
-                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">man</a>
+                                    <li class="navbar-list__item-tittle"><a href="catalog.html"
+                                            class="navbar-list__item-link-tittle">man</a>
                                     </li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Denim</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Accessories</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Bags</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Denim</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">T-Shirts</a></li>
                                 </ul>
                             </li>
                             <li class="navbar__categorie">
                                 <ul class="navbar-list">
-                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">woman</a>
+                                    <li class="navbar-list__item-tittle"><a href="catalog.html"
+                                            class="navbar-list__item-link-tittle">woman</a>
                                     </li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets & Coats</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Accessories</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Jackets & Coats</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Polos</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">T-Shirts</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Shirts</a></li>
                                 </ul>
                             </li>
                             <li class="navbar__categorie">
                                 <ul class="navbar-list">
-                                    <li class="navbar-item-tittle"><a href="#" class="navbar_link-tittle">kids</a>
+                                    <li class="navbar-list__item-tittle"><a href="catalog.html"
+                                            class="navbar-list__item-link-tittle">kids</a>
                                     </li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Accessories</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Jackets &amp; Coats</a>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Accessories</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Jackets &amp; Coats</a>
                                     </li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Polos</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">T-Shirts</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Shirts</a></li>
-                                    <li class="navbar-item"><a href="#" class="navbar_link">Bags</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Polos</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">T-Shirts</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Shirts</a></li>
+                                    <li class="navbar-list__item"><a href="catalog.html"
+                                            class="navbar-list__item-link">Bags</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -167,6 +183,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>

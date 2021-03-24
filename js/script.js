@@ -1,81 +1,163 @@
-const goods = [{
-        title: "mango people t&#8209;shirt",
-        price: 100,
-        src: "./img/cart-goods-1.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "red",
-        size: "Xl",
-        quantity: 2
-    },
-    {
-       title: "jacket",
-        price: 350,
-        src: "./img/cart-goods-2.jpg",
-        alt: "man in shirt and trousers",
-        color: "red",
-        size: "Xl",
-        quantity: 1
-    },
-    {
-        title: "shoes",
-        price: 250,
-        src: "./img/cart-goods-1.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "black",
-        size: "45",
-        quantity: 1
-    },
-    {
-        title: "socks",
-        price: 50,
-        src: "./img/cart-goods-2.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "red",
-        size: "43-46",
-        quantity: 2
+class Api {
+    constructor() {
+        this.url = "./js/goods.json";
     }
-];
 
-const $goodsList = document.querySelector(".cart__goods_list");
+    fetch(error, success) {
+        let xhr;
 
-const renderGoodsItem = ({
-    title,
-    price,
-    src,
-    alt,
-    color,
-    size,
-    quantity
-}) => {
-    return `<li class="cart__goods_item">
-   <img src=${src} alt=${alt} class="cart__goods_item-image"
-       width="262" height="306">
-   <div class="cart__goods_item-wrap">
-       <div class="cart__goods_item-text">
-           <h2 class="cart__goods_item-tittle">${title}</h2>
-           <ul class="cart__goods_char-list">
-               <li class="cart__goods_char-item">Price: <span
-                       class="cart__goods_char-price">&dollar;${price}</span></li>
-               <li class="cart__goods_char-item">Color: ${color}</li>
-               <li class="cart__goods_char-item">Size: ${size}</li>
-               <li class="cart__goods_char-item">Quantity: <span
-                       class="cart__goods_char-quantity">${quantity}</span></li>
-           </ul>
-       </div>
-       <button class="cart__goods_close button">
-           <img src="img/navbar-close.svg" class="cart__goods_close-img"
-               alt="cart close">
-       </button>
-   </div>
-</li>`;
-};
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
 
-const renderGoodsList = (list = goods) => { //  дополнительная переменная list для большей гибкости и возможности переиспользования функции
-    let goodsList = list.map(
-        item => renderGoodsItem(item)
-    ).join(""); 
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    success(JSON.parse(xhr.responseText));
+                } else if (xhr.status > 400) {
+                    error("Ошибка");
+                }
+            }
+        }
 
-    $goodsList.insertAdjacentHTML("beforeend", goodsList);
+        xhr.open('GET', this.url, true);
+        xhr.send();
+    }
+
+    fetchPromise() {
+        return new Promise((resolve, reject) => {
+            this.fetch(reject, resolve)
+        })
+    }
 }
 
-renderGoodsList();
+class GoodsItem {
+    constructor(title, price, src, alt, color, size, id) {
+        this.title = title;
+        this.price = price;
+        this.src = src;
+        this.alt = alt;
+        this.color = color;
+        this.size = size;
+        this.id = id;
+    }
+
+    getHtml() {
+        return `<li class="featured__item">
+                    <div class="featured__picture">
+                        <img class="featured__picture_image" src="${this.src}" alt="${this.alt}" width="360" height="420">
+                        <div class="featured__image-box">
+                            <button class="button featured__item-button" type="button" id="itemAdd_${this.id}">
+                                <img src="img/icon-cart.svg" alt="icon cart" width="26" height="24">
+                                <span class="featured__item-button_text">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                    <a href="#" class="featured__item_text">${this.title}</a>
+                    <p class="featured__item_subtext">Known for her sculptural takes on traditional tailoring,
+                        Australian arbiter of cool Kym Ellery teams up with Moda&nbsp;Operandi.</p>
+                    <p class="featured__item_price">&dollar;${this.price}</p>
+                </li>`;
+    }
+}
+
+class Buttons {
+    constructor() {
+        this.$buttonsAdd = document.querySelector(".featured__list");
+        this.$search = document.querySelector('#search');
+    }
+
+    setButton() {
+        this.$buttonsAdd.addEventListener("click", event => {
+            var button = event.target.closest("button");
+            if (button) { //проверяем, вдруг button-родителя нет
+                goodsList.addToCart(button)
+            }
+        });
+    }
+
+    setSearchHandler(callback) {
+        this.$search.addEventListener('input', callback);
+      }
+}
+
+class GoodsList {
+    constructor() {
+        this.api = new Api();
+        this.$goodsList = document.querySelector(".featured__list");
+        this.goods = [];
+        this.filteredGoods = [];
+        
+        const fetch = this.api.fetchPromise();
+
+        fetch.then((data) => {
+                this.onFetchSuccess(data)
+            })
+            .catch((err) => {
+                this.onFetchError(err)
+            });
+    }
+
+    onFetchSuccess(data) {
+        this.goods = data.map(({
+            title,
+            price,
+            src,
+            alt,
+            color,
+            size,
+            id
+        }) => new GoodsItem(title, price, src, alt, color, size, id));
+        this.filteredGoods = this.goods;
+        this.render();
+        this.addBtn();
+    }
+
+    onFetchError(err) {
+        this.$goodsList.insertAdjacentHTML("beforeend", `<h3>${err}</h3>`);
+    }
+
+    render() {
+        this.$goodsList.textContent = "";
+        this.filteredGoods.forEach((good) => {
+            this.$goodsList.insertAdjacentHTML("beforeend", good.getHtml());
+        })
+    }
+
+    addBtn() {
+        this.buttons = new Buttons();
+        this.buttons.setButton();
+        this.buttons.setSearchHandler((evt) => {
+            this.search(evt.target.value);
+          }) 
+    }
+
+    addToCart(button) {
+        let itemNum = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
+        let selectedItem = this.goods[itemNum];
+
+        if (hasAlready() == undefined) { // если товара нет в корзине, то добавить его
+            let cartItem = Object.create(selectedItem)
+            cartItem.quantity = 1;
+            cartArray.push(cartItem); 
+        }
+
+        function hasAlready() { // проверяем по id, есть ли уже в корзине выбранный товар
+            return cartArray.find(x => x.id === selectedItem.id);
+        }
+    }
+
+    search(str) {
+        if (str === '') {
+          this.filteredGoods = this.goods;
+        }
+        const regexp = new RegExp(str, 'gi');
+        this.filteredGoods = this.goods.filter((good) => regexp.test(good.title));
+        this.render();
+      }
+}
+
+const goodsList = new GoodsList();
+var cartArray = [];
