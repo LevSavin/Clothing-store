@@ -49,17 +49,6 @@
         }
     }
 
-    /* .featured__list {
-        display: flex;
-        @include justify-content-space-between;
-        align-content: space-between;
-        flex-wrap: wrap;
-
-        @include mobile {
-            @include justify-content-center;
-        }
-    } */
-
     .featured__item {
         margin: 0 0 30px 0;
         max-width: 360px;

@@ -1,5 +1,5 @@
-var cartArray = [{
-        title: "mango people t&#8209;shirt",
+var cart = [{
+        title: "mango people t-shirt",
         price: 10,
         src: "./img/cart-goods-1.jpg",
         alt: "man in sweatshirt and shorts",
@@ -40,185 +40,106 @@ var cartArray = [{
     }
 ]
 
-class ApiMock {
-    constructor() {
-
-    }
-
-    fetch() {
-        return cartArray;
-    }
-}
-
-class CartItem {
-    constructor(title, price, src, alt, color, size, id, quantity) {
-        this.title = title;
-        this.price = price;
-        this.src = src;
-        this.alt = alt;
-        this.color = color;
-        this.size = size;
-        this.id = id;
-        this.quantity = quantity;
-    }
-
-    getHtml() {
-        return `<li class="cart__goods_item" id="itemCart_${this.id}">
-        <img src=${this.src} alt=${this.alt} class="cart__goods_item-image"
-            width="262" height="306">
-        <div class="cart__goods_item-wrap">
-            <div class="cart__goods_item-text">
-                <h2 class="cart__goods_item-tittle">${this.title}</h2>
-                <ul class="cart__goods_char-list">
-                    <li class="cart__goods_char-item">Price: <span
-                            class="cart__goods_char-price">&dollar;${this.price}</span></li>
-                    <li class="cart__goods_char-item">Color: ${this.color}</li>
-                    <li class="cart__goods_char-item">Size: ${this.size}</li>
-                    <li class="cart__goods_char-item">
-                        Quantity: <span class="cart__goods_char-quantity" id="quantity_${this.id}">${this.quantity}</span>
-                        <button data-action="increase" class="cart__goods_char-button button" id="increase_${this.id}">+</button>
-                        <button data-action="decrease"class="cart__goods_char-button button" id="decrease_${this.id}">-</button>
-                    </li>                            
-                </ul>
-            </div>
-            <button data-action="removeFromCart" class="cart__goods_close button" id="removeFromCart_${this.id}">
-                <img src="img/navbar-close.svg" class="cart__goods_close-img"
-                    alt="cart close">
-            </button>
+Vue.component('cart-item', {
+    template: `<li class="cart__goods_item" :data-id="id">
+    <img :src="src" :alt="alt" class="cart__goods_item-image"
+        width="262" height="306">
+    <div class="cart__goods_item-wrap">
+        <div class="cart__goods_item-text">
+            <h2 class="cart__goods_item-tittle">{{ title }}</h2>
+            <ul class="cart__goods_char-list">
+                <li class="cart__goods_char-item">Price: <span
+                        class="cart__goods_char-price"> &dollar; {{ price * quantity }}</span></li>
+                <li class="cart__goods_char-item">Color: {{ color }}</li>
+                <li class="cart__goods_char-item">Size: {{ size }}</li>
+                <li class="cart__goods_char-item">
+                    Quantity: <span class="cart__goods_char-quantity" >{{ quantity }}</span>
+                    <button data-action="increase" class="cart__goods_char-button button">+</button>
+                    <button data-action="decrease" class="cart__goods_char-button button">-</button>
+                </li>                            
+            </ul>
         </div>
-     </li>`;
-    }
-}
+        <button data-action="removeFromCart" class="cart__goods_close button">
+            <img src="img/navbar-close.svg" class="cart__goods_close-img"
+                alt="cart close">
+        </button>
+    </div>
+ </li>`,
+    props: ['title', 'price', 'src', 'alt', 'color', 'size', 'id', 'quantity']
+})
 
-class Buttons {
-    constructor(elem) {
-        this.elem = elem;
-        elem.onclick = this.onClick.bind(this); //  метод this.onClick привязывается к контексту текущего объекта this. Т.к. иначе this внутри него будет ссылаться на DOM-элемент (elem), а не на объект Buttons, и this[action] будет не тем, что нам нужно.
-    }
-
-    increase(button) {
-        cartList.increase(button)
-    }
-
-    decrease(button) {
-        cartList.decrease(button)
-    }
-
-    removeFromCart(button) {
-        cartList.removeFromCart(button)
-    }
-
-    onClick(event) {
-        let button = event.target.closest("button");
-        if (button) { //проверяем, вдруг button-родителя нет
-            let action = event.target.closest("button").dataset.action; // определяем значения атрибута data у кнопки
-            if (action) {
-                this[action](button);
+const vue = new Vue({
+    el: '#app',
+    data: {
+        cartArray: [],
+        sum: 0,
+        isRemoved: false,
+    },
+    methods: {
+        cartHandler(event) {
+            const button = event.target.closest("button");
+            if (button) { //проверяем, вдруг button-родителя нет
+                let action = event.target.closest("button").dataset.action; // определяем значения атрибута data у кнопки
+                if (action) {
+                    const catalogId = event.target.closest('.cart__goods_item').dataset.id;
+                    const cartId = this.cartArray.findIndex(x => x.id == catalogId);
+                    this[action](cartId); // передаём нужное действие и индекс товара в корзине
+                }
             }
-        }
-    };
-}
+        },
 
-class MenuButtons {
-    constructor() {
-        this.$buttonsClear = document.querySelector(".cart__goods_button");
-    }
+        countSum() {
+            let initialValue = 0;
+            this.sum = this.cartArray.reduce(function (accumulator, currentValue) {
+                return accumulator + (currentValue.price * currentValue.quantity);
+            }, initialValue);
+        },
 
-    setClear() {
-        this.$buttonsClear.addEventListener("click", event => {
-            let clear = event.target.closest("button");
-            if (clear) { //проверяем, вдруг button-родителя нет
-                cartList.clearCart()
+        increase(cartId) {
+            this.cartArray[cartId].quantity += 1;
+            this.countSum();
+        },
+
+        decrease(cartId) {
+            if (this.cartArray[cartId].quantity > 1) {
+                this.cartArray[cartId].quantity -= 1;
+            } else {
+                this.cartArray.splice(cartId, 1);
             }
-        });
-    }
-}
+            this.countSum();
+        },
 
-class CartList {
-    constructor() {
-        this.api = new ApiMock();
-        this.$cartList = document.querySelector(".cart__goods-list");
-        this.goods = [];
-        this.fetchGoods()
-    }
+        removeFromCart(cartId) {
+            this.cartArray.splice(cartId, 1);
+            this.countSum();
+        },
 
-    fetchGoods() {
-        this.goods = this.api.fetch().map(({
-            title,
-            price,
-            src,
-            alt,
-            color,
-            size,
-            id,
-            quantity
-        }) => new CartItem(title, price, src, alt, color, size, id, quantity));
-        this.render();
-        this.countSum();
-        this.addBtn();
-    }
+        clearCart() {
+            this.cartArray = [];
+            this.countSum();
+        },
 
-    render() {
-        this.$cartList.textContent = "";
-        this.goods.forEach((good) => {
-            this.$cartList.insertAdjacentHTML('beforeend', good.getHtml());
-        })
-    }
-
-    addBtn() {
-        this.buttons = new Buttons(DOMcartList);
-        this.menuButtons = new MenuButtons()
-        this.menuButtons.setClear();
-    }
-
-    countSum() {
-        let initialValue = 0;
-        let sum = cartArray.reduce(function (accumulator, currentValue) {
-            return accumulator + (currentValue.price * currentValue.quantity);
-        }, initialValue);
-        document.querySelector(".cart__order_subtittle-price").textContent = `${sum} \u0024`;
-        document.querySelector(".cart__order_tittle-price").textContent = `${sum} \u0024`;
-    }
-
-    setId(button) {
-        catalogId = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
-        cartId = cartArray.findIndex(x => x.id == catalogId); // индекс товара из массива корзины
-    }
-
-    increase(button) {
-        this.setId(button);
-        cartArray[cartId].quantity += 1;
-        document.getElementById("quantity_" + catalogId).textContent = cartArray[cartId].quantity;
-        this.countSum()
-    }
-
-    decrease(button) {
-        this.setId(button);
-        if (cartArray[cartId].quantity > 1) {
-            cartArray[cartId].quantity -= 1;
-            document.getElementById("quantity_" + catalogId).textContent = cartArray[cartId].quantity;
-        } else {
-            let remItem = document.getElementById("itemCart_" + catalogId)
-            remItem.remove()
-            cartArray.splice(cartId, 1)
+        fetchPromise() { //mock
+            return cart;
         }
+    },
+
+    mounted() {
+        this.cartArray = cart;
         this.countSum()
     }
+})
 
-    removeFromCart(button) {
-        this.setId(button);
-        let remItem = document.getElementById("itemCart_" + catalogId)
-        remItem.remove()
-        cartArray.splice(cartId, 1)
-        this.countSum()
+/* const menu = new Vue({
+    el: '#header',
+    data: {
+        isVisible: false,
+    },
+    methods: {
+        toggleNavbar() {
+            if (this.isVisible === true)
+            this.isVisible = false;
+            else this.isVisible = true;            
+        }
     }
-
-    clearCart() {
-        cartArray = [];
-        this.countSum()
-        this.$cartList.textContent = "";
-    }
-}
-
-var catalogId, cartId;
-const cartList = new CartList();
+}) */
