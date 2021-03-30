@@ -136,6 +136,8 @@
                 <p class="featured__subtittle">Shop for items based on what we featured in this week</p>
                 <search-input v-on:search="searchHandler"></search-input>
                 <ul class="featured__list" v-on:click="addToCartHandler">
+                    <div class="featured__list-status" v-if="!isLoaded"><h4>Loading...</h4></div>
+                    <div class="featured__list-status" v-if="isLoaded && goods.length == 0"><h4>No goods</h4></div>
                     <goods-item 
                         v-for="good in filtredGoods" 
                         v-bind:key="good.id"

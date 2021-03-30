@@ -102,7 +102,9 @@
                 </div>
                 <div class="cart__content container">
                     <div class="cart__goods">
-                        <ul class="cart__goods-list" v-on:click="cartHandler">
+                        <ul class="cart__goods_list" v-on:click="cartHandler">
+                            <div class="cart__goods_list-status" v-if="!isLoaded"><h4>Loading...</h4></div>
+                            <div class="cart__goods_list-status" v-if="isLoaded && cartArray.length == 0"><h4>Cart is empty</h4></div>
                             <cart-item 
                                 v-for="good in cartArray" 
                                 v-bind:key="good.id"

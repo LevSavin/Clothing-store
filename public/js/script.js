@@ -37,7 +37,8 @@ const vue = new Vue({
         cart: [],
         goods: [],
         filtredGoods: [],
-        search: ''
+        search: '',
+        isLoaded: false,
     },
     methods: {
         addToCartHandler(e) {
@@ -85,7 +86,7 @@ const vue = new Vue({
             .then(data => {
                 this.goods = data;
                 this.filtredGoods = data;
-                //this.isLoaded = true;
+                this.isLoaded = true;
             })
             .catch(err => {
                 console.log(err);

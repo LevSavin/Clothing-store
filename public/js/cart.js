@@ -31,7 +31,7 @@ const vue = new Vue({
     data: {
         cartArray: [],
         sum: 0,
-        isRemoved: false,
+        isLoaded: false
     },
     methods: {
         cartHandler(event) {
@@ -103,6 +103,7 @@ const vue = new Vue({
             .then(data => {
                 this.cartArray = data;
                 this.countSum();
+                this.isLoaded = true;
             })
             .catch(err => {
                 console.log(err);
