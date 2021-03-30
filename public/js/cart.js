@@ -1,45 +1,3 @@
-var cart = [{
-        title: "mango people t-shirt",
-        price: 10,
-        src: "./img/cart-goods-1.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "red",
-        size: "Xl",
-        id: 3,
-        quantity: 1
-    },
-    {
-        title: "jacket",
-        price: 150,
-        src: "./img/cart-goods-2.jpg",
-        alt: "man in shirt and trousers",
-        color: "red",
-        size: "Xl",
-        id: 0,
-        quantity: 1
-    },
-    {
-        title: "shoes",
-        price: 100,
-        src: "./img/cart-goods-1.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "black",
-        size: "45",
-        id: 9,
-        quantity: 1
-    },
-    {
-        title: "socks",
-        price: 5,
-        src: "./img/cart-goods-2.jpg",
-        alt: "man in sweatshirt and shorts",
-        color: "red",
-        size: "43-46",
-        id: 5,
-        quantity: 1
-    }
-]
-
 Vue.component('cart-item', {
     template: `<li class="cart__goods_item" :data-id="id">
     <img :src="src" :alt="alt" class="cart__goods_item-image"
@@ -97,7 +55,7 @@ const vue = new Vue({
 
         increase(cartId) {
             this.cartArray[cartId].quantity += 1;
-            this.countSum();
+            this.editCart(this.cartArray);
         },
 
         decrease(cartId) {
@@ -106,40 +64,48 @@ const vue = new Vue({
             } else {
                 this.cartArray.splice(cartId, 1);
             }
-            this.countSum();
+            this.editCart(this.cartArray);
         },
 
         removeFromCart(cartId) {
             this.cartArray.splice(cartId, 1);
-            this.countSum();
+            this.editCart(this.cartArray);
         },
 
         clearCart() {
-            this.cartArray = [];
-            this.countSum();
+            this.editCart([]);
         },
 
-        fetchPromise() { //mock
-            return cart;
+        editCart(array) {
+            fetch('/patchCart', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(array)
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    this.cartArray = data;
+                    this.countSum();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         }
     },
 
     mounted() {
-        this.cartArray = cart;
-        this.countSum()
+        fetch('/cart')
+            .then(response => response.json())
+            .then(data => {
+                this.cartArray = data;
+                this.countSum();
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 })
-
-/* const menu = new Vue({
-    el: '#header',
-    data: {
-        isVisible: false,
-    },
-    methods: {
-        toggleNavbar() {
-            if (this.isVisible === true)
-            this.isVisible = false;
-            else this.isVisible = true;            
-        }
-    }
-}) */

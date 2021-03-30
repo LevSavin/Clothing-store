@@ -1,5 +1,3 @@
-const API_URL = './js/goods.json';
-
 Vue.component('goods-item', {
     template: `<li class="featured__item" :data-id="id">
     <div class="featured__picture">
@@ -42,36 +40,33 @@ const vue = new Vue({
         search: ''
     },
     methods: {
-
         addToCartHandler(e) {
             const id = e.target.closest('.featured__item').dataset.id;
             const good = this.goods.find((item) => item.id == id);
             let elem = this;
 
             if (hasAlready(elem) == undefined) { // если товара нет в корзине, то добавить его
-                let cartItem = Object.create(good)
+                const cartItem = JSON.parse(JSON.stringify(good));
                 cartItem.quantity = 1;
-                elem.cart.push(cartItem);
+
+                fetch('/addToCart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(cartItem)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        elem.cart = data;
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             }
 
             function hasAlready(elem) { // проверяем по id, есть ли уже в корзине выбранный товар
                 return elem.cart.find(item => item.id === good.id);
-            }
-            console.log(this.cart)
-        },
-
-        addToCart(button) {
-            let itemNum = button.id.split("_")[1] //индекс товара из массива товаров в каталоге
-            let selectedItem = this.goods[itemNum];
-
-            if (hasAlready() == undefined) { // если товара нет в корзине, то добавить его
-                let cartItem = Object.create(selectedItem)
-                cartItem.quantity = 1;
-                cartArray.push(cartItem);
-            }
-
-            function hasAlready() { // проверяем по id, есть ли уже в корзине выбранный товар
-                return cartArray.find(x => x.id === selectedItem.id);
             }
         },
 
@@ -83,44 +78,27 @@ const vue = new Vue({
             this.filtredGoods = this.goods.filter((good) => regexp.test(good.title));
         },
 
-        fetch(error, success) {
-            let xhr;
-
-            if (window.XMLHttpRequest) {
-                xhr = new XMLHttpRequest();
-            } else if (window.ActiveXObject) {
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        success(JSON.parse(xhr.responseText));
-                    } else if (xhr.status > 400) {
-                        error('Ошибка');
-                    }
-                }
-            }
-
-            xhr.open('GET', API_URL, true);
-            xhr.send();
-        },
-
-        fetchPromise() {
-            return new Promise((resolve, reject) => {
-                this.fetch(reject, resolve)
-            })
-        }
     },
-
     mounted() {
-        this.fetchPromise()
+        fetch('/data')
+            .then(response => response.json())
             .then(data => {
                 this.goods = data;
                 this.filtredGoods = data;
+                //this.isLoaded = true;
             })
             .catch(err => {
                 console.log(err);
             })
+
+        fetch('/cart')
+            .then(response => response.json())
+            .then(data => {
+                this.cart = data;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
     }
 })
