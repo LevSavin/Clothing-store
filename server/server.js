@@ -35,7 +35,7 @@ app.get('/cart', (req, res) => {
     })
 });
 
-app.post('/addToCart', bodyParser.json(), (req, res) => {
+app.post('/addToCart', (req, res) => {
     fs.readFile('./server/cart.json', 'utf-8', (err, data) => {
         if (!err) {
             const goods = JSON.parse(data);
@@ -59,13 +59,21 @@ app.post('/addToCart', bodyParser.json(), (req, res) => {
     })
 });
 
-app.patch('/patchCart', bodyParser.json(), (req, res) => {
-    fs.writeFile('./server/cart.json', JSON.stringify(req.body), (err) => {
-        if (!err) {
-            res.end(JSON.stringify(req.body));
-        } else {
+app.patch('/patchCart', (req, res) => {
+    const file = new Promise((resolve, reject) =>
+            fs.writeFile('./server/cart.json', JSON.stringify(req.body), (err) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(JSON.stringify(req.body))
+                }
+            })
+        )
+        .then(data => {
+            res.end(data);;
+        })
+        .catch(err => {
             console.log(err);
             res.end(data);
-        }
-    })
-});
+        })
+})
