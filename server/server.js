@@ -7,9 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('.'));
 
-app.listen(3000, function () {
-    console.log('server is running on port 3000!');
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listen on port ${port}...`));
 
 app.get('/data', (req, res) => {
     fs.readFile('./server/goods.json', 'utf-8', (err, data) => {
