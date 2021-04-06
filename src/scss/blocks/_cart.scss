@@ -49,6 +49,17 @@
         }
     }
 
+    .cart__goods_list-status {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        min-height: 50px;
+        color: $dark-gray-color;
+        @include font(17px, 17px, 300);
+        text-transform: uppercase;
+    }
+
     .cart__goods_item {
         width: 39vw;
         height: auto;

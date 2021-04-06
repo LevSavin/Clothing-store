@@ -8,3 +8,4 @@
 # Local History for Visual Studio Code
 .history/
 fonts/generator_config.txt
+node_modules

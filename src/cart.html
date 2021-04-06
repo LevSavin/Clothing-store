@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header" id="header">
+            <div class="header__container container">
+                <ul class="header__menu-list">
+                    <li class="header__menu-item"><a href="index.html" class="header__logo"><img src="./img/logo.svg"
+                                alt="logotype" width="44" height="38"></a></li>
+                    <li class="header__menu-item"><button class="button header__button" type="button"><img
+                                src="./img/loupe.svg" alt="loupe" width="26" height="27"></button></li>
+                    <li class="header__menu-item">
+                        <a href="registration.html"><img src="img/icon-user.svg" alt="icon user" width="29" height="29"></a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__links-pages"><img src="img/icon-cart.svg" alt="icon cart" width="32"
+                                height="29"></a>
+                    </li>
+                    <li class="header__menu-item header__navbar" tabindex="1">
+                        <button v-on:click="toggleNavbar" v-on:close="toggleNavbar" class="button header__menu-button" type="button">
+                            <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon hamburger"
+                                width="32" height="23">
+                        </button>
+                        <navbar v-show="isVisible"></navbar>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main class="main">
+            <section class="cart">
+                <div class="cart__name">
+                    <div class="cart__name-box container">
+                        <h1 class="cart__tittle">shopping cart</h1>
+                    </div>
+                </div>
+                <div class="cart__content container">
+                    <div class="cart__goods">
+                        <ul class="cart__goods_list" v-on:click="cartHandler">
+                            <div class="cart__goods_list-status" v-if="!isLoaded"><h4>Loading...</h4></div>
+                            <div class="cart__goods_list-status" v-if="isLoaded && cartArray.length == 0"><h4>Cart is empty</h4></div>
+                            <cart-item 
+                                v-for="good in cartArray" 
+                                v-bind:key="good.id"
+                                v-bind="good" >                        
+                            </cart-item>
+                        </ul>
+                        <div class="cart__goods-wrap">
+                            <div class="cart__goods_buttons">
+                                <button class="cart__goods_button button" v-on:click="clearCart">clear shopping cart</button>
+                                <button class="cart__goods_button button"
+                                    onclick="window.location.href = 'index.html'">continue shopping</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart__goods_wrap">
+                        <form action="#" class="cart__form">
+                            <fieldset>
+                                <legend class="cart__form_tittle">shipping adress</legend>
+                                <input class="cart__form_field input-text" type="text" placeholder="Country" required>
+                                <input class="cart__form_field input-text" type="text" placeholder="State" required>
+                                <input class="cart__form_field input-text" type="text" placeholder="Postcode / Zip"
+                                    required>
+                                <button type="button" class="cart__form_submit button">get a quote</button>
+                            </fieldset>
+                        </form>
+                        <div class="cart__order">
+                            <div class="cart__order_text-wrap">
+                                <h2 class="cart__order_subtittle">sub total<span
+                                        class="cart__order_subtittle-price">${{ sum }}</span></h2>
+                                <h3 class="cart__order_tittle">grand total<span class="cart__order_tittle-price">${{ sum }}</span>
+                                </h3>
+                            </div>
+                            <div class="cart__order_text-box">
+                                <button type="button" class="cart__order_submit button">proceed to checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__box">
+                <div class="footer__wrap container">
+                    <div class="footer__content">
+                        <div class="footer__image"></div>
+                        <p class="footer__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus
+                            condimentum“</p>
+                    </div>
+                    <div class="footer__subscribe">
+                        <h2 class="footer__tittle">Subscribe</h2>
+                        <p class="footer__subtittle">for our newletter and promotion</p>
+                        <form action="#" class="footer__form">
+                            <input class="footer__field-text" type="email" placeholder="Enter Your Email">
+                            <button class="button footer__button-submit" type="submit">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__holder">
+                <div class="footer__wrapper container">
+                    <p class="footer__wrapper_text">&copy; 2021 Brand All Rights Reserved.</p>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-facebook.svg" alt="icon facebook" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-instagram.svg" alt="icon instagram" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-twitter.svg" alt="icon twitter" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-pinterast.svg" alt="icon pinterast" width="32" height="32"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="../assets/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="header__container container">
+                <ul class="header__menu-list">
+                    <li class="header__menu-item"><a href="index.html" class="header__logo"><img src="./img/logo.svg"
+                                alt="logotype" width="44" height="38"></a></li>
+                    <li class="header__menu-item"><button class="button header__button" type="button"><img
+                                src="./img/loupe.svg" alt="loupe" width="26" height="27"></button></li>
+                    <li class="header__menu-item">
+                        <a href="#"><img src="img/icon-user.svg" alt="icon user" width="29" height="29"></a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="cart.html" class="header__links-pages"><img src="img/icon-cart.svg" alt="icon cart"
+                                width="32" height="29"></a>
+                    </li>
+                    <li class="header__menu-item header__navbar" tabindex="1">
+                        <button v-on:click="toggleNavbar" v-on:close="toggleNavbar" class="button header__menu-button" type="button">
+                            <img class="header__icon-hamburger button" src="img/icon-hamburger.svg" alt="icon hamburger"
+                                width="32" height="23">
+                        </button>
+                        <navbar v-show="isVisible"></navbar>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main class="main">
+            <section class="registration">
+                <div class="registration__name">
+                    <div class="registration__name_box container">
+                        <h1 class="registration__tittle tracking-in-expand">registration</h1>
+                    </div>
+                </div>
+                <div class="registration__content container">
+                    <form action="#" class="registration__form">
+                        <fieldset>
+                            <legend class="registration__form_tittle">Your Name</legend>
+                            <input class="registration__form_field input-text" type="text" placeholder="First Name"
+                                required>
+                            <input class="registration__form_field input-text" type="text" placeholder="Last Name" required>
+                            <label><input type="radio" name="sex" id="male" value="male"
+                                    class="registration__form_field-check" required><span
+                                    class="registration__form_check-text">Male</span></label>
+                            <label><input type="radio" name="sex" id="female" value="female"
+                                    class="registration__form_field-check" required><span
+                                    class="registration__form_check-text">Female</span></label>
+                        </fieldset>
+                        <fieldset>
+                            <legend class="registration__form_tittle">Login details</legend>
+                            <input class="registration__form_field input-text" type="Email" placeholder="Email" required>
+                            <input class="registration__form_field input-text" type="Password" placeholder="Password"
+                                required>
+                            <span class="registration__form_login-text">Please use 8 or more characters, with at least 1
+                                number and a mixture of uppercase and lowercase letters</span>
+                        </fieldset>
+                        <button type="submit" class="registration__form_submit button">
+                            <span class="registration__form_submit-text">join now</span>
+                            <span class="registration__form_submit-icon"></span>
+                        </button>
+                    </form>
+                    <div class="registration__perks">
+                        <h2 class="registration__perks_tittle">loyalty has its perks</h2>
+                        <p class="registration__perks_subtittle">Get in on the loyalty program where you can earn points and
+                            unlock serious perks. Starting with these as soon as you join:</p>
+                        <ul class="registration__perks_list">
+                            <li class="registration__perks_item"><span class="registration__perks_item-icon"></span><span
+                                    class="registration__perks_item-text">%off welcome offer</span></li>
+                            <li class="registration__perks_item"><span class="registration__perks_item-icon"></span><span
+                                    class="registration__perks_item-text">Free shipping, returns and exchanges on all
+                                    orders</span></li>
+                            <li class="registration__perks_item"><span class="registration__perks_item-icon"></span><span
+                                    class="registration__perks_item-text">$10 off a purchase on your birthday</span></li>
+                            <li class="registration__perks_item"><span class="registration__perks_item-icon"></span><span
+                                    class="registration__perks_item-text">Early access to products</span></li>
+                            <li class="registration__perks_item"><span class="registration__perks_item-icon"></span><span
+                                    class="registration__perks_item-text">Exclusive offers & rewards</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__box">
+                <div class="footer__wrap container">
+                    <div class="footer__content">
+                        <div class="footer__image"></div>
+                        <p class="footer__text">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus
+                            condimentum“</p>
+                    </div>
+                    <div class="footer__subscribe">
+                        <h2 class="footer__tittle">Subscribe</h2>
+                        <p class="footer__subtittle">for our newletter and promotion</p>
+                        <form action="#" class="footer__form">
+                            <input class="footer__field-text" type="email" placeholder="Enter Your Email">
+                            <button class="button footer__button-submit" type="submit">
+                                <span>Subscribe</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__holder">
+                <div class="footer__wrapper container">
+                    <p class="footer__wrapper_text">&copy; 2021 Brand All Rights Reserved.</p>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-facebook.svg" alt="icon facebook" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-instagram.svg" alt="icon instagram" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-twitter.svg" alt="icon twitter" width="32" height="32"></a></li>
+                        <li class="footer__social-item"><a href="#" class="footer__social-link"><img
+                                    src="img/icon-pinterast.svg" alt="icon pinterast" width="32" height="32"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
