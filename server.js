@@ -6,6 +6,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static('.'));
+//app.use('/', express.static(path.join(__dirname, 'src')))
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listen on port ${port}...`));
